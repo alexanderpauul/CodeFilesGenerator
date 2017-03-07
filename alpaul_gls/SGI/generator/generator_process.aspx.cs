@@ -28,7 +28,7 @@ namespace alpaul_gls.SGI.generator
         private string _language { get { return ddlLanguage.SelectedValue; } }
 
 
-        protected void GetListOfFieldsInTables(string database, string table)
+        protected void GetListOfFieldsInTables(string database, string table, string schema)
         {
             if (_logfields != null)
             {
@@ -38,7 +38,7 @@ namespace alpaul_gls.SGI.generator
             {
                 using (SqlConnection cnn = new SqlConnection(property.CONNECTION_STRING))
                 {
-                    using (SqlCommand cmd = new SqlCommand(Utils.fieldscommand.Replace("{database}", database).Replace("{table}", table), cnn))
+                    using (SqlCommand cmd = new SqlCommand(Utils.fieldscommand.Replace("{database}", database).Replace("{table}", table).Replace("{schema}", schema), cnn))
                     {
                         cmd.CommandType = CommandType.Text;
                         cmd.CommandTimeout = 0;
@@ -118,7 +118,7 @@ namespace alpaul_gls.SGI.generator
                 {
                     if (item.PROCESS)
                     {
-                        GetListOfFieldsInTables(property.DATABASE, item.TABLE_NAME);
+                        GetListOfFieldsInTables(property.DATABASE, item.TABLE_NAME, item.TABLE_SCHEMA);
                         Builder.SqlFileBuilder(item.TABLE_CATALOG,
                                                item.TABLE_SCHEMA,
                                                item.TABLE_NAME,
@@ -137,7 +137,7 @@ namespace alpaul_gls.SGI.generator
                 {
                     if (item.PROCESS)
                     {
-                        GetListOfFieldsInTables(property.DATABASE, item.TABLE_NAME);
+                        GetListOfFieldsInTables(property.DATABASE, item.TABLE_NAME, item.TABLE_SCHEMA);
                         Builder.ModelsBuilder(item.TABLE_NAME, _language, property, _logfields);
                     }
                 }
@@ -151,7 +151,7 @@ namespace alpaul_gls.SGI.generator
                 {
                     if (item.PROCESS)
                     {
-                        GetListOfFieldsInTables(property.DATABASE, item.TABLE_NAME);
+                        GetListOfFieldsInTables(property.DATABASE, item.TABLE_NAME, item.TABLE_SCHEMA);
                         Builder.DataBuilder("UASDF",
                                             item.TABLE_NAME,
                                             _language,
@@ -181,7 +181,7 @@ namespace alpaul_gls.SGI.generator
                 {
                     if (item.PROCESS)
                     {
-                        GetListOfFieldsInTables(property.DATABASE, item.TABLE_NAME);
+                        GetListOfFieldsInTables(property.DATABASE, item.TABLE_NAME, item.TABLE_SCHEMA);
                         Builder.SingleFileBuilder("UASDF",
                                                   item.TABLE_NAME,
                                                   _language,
