@@ -1,0 +1,1 @@
+        Public Property {fieldname} As {type}

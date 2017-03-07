@@ -1,0 +1,37 @@
+﻿/* CSS */
+.msg-error {
+    background-color: #f2dede !important;
+    color: #b94a48 !important;
+    padding: 0.4em;
+    border-radius: 0px;
+    border: 0px;
+    margin: 4px 0;
+}
+
+    .msg-error ul {
+       padding: 0 30px !important;
+    }
+
+.ctrl-error {
+    background-color: #FBE3E4 !important;
+    border-width: 0 !important;
+    border-style: solid !important;
+    /*border-color: #b94a48 !important;*/
+}
+
+div .ctrl-error a {
+    background-color: #FBE3E4 !important;
+}
+
+.msg-success {
+    background-color: #dff0d8 !important;
+    color: #3c763d !important;
+    padding: 0.4em;
+    border-radius: 0px;
+    border: 0px;
+    margin: 4px 0;
+}
+
+/*.msg-success ul li {
+    list-style-type: none;
+}*/

@@ -1,0 +1,7 @@
+﻿USE {database}
+GO
+
+CREATE PROCEDURE {table}_GetAll
+AS
+	SELECT {fields} 
+	  FROM {table}

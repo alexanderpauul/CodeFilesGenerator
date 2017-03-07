@@ -1,0 +1,11 @@
+﻿USE {database}
+GO
+
+CREATE PROCEDURE {table}_GetById
+(
+	@value NVARCHAR(100)
+)
+AS
+	SELECT {fields} 
+	  FROM {table} 
+	 WHERE {fieldId}

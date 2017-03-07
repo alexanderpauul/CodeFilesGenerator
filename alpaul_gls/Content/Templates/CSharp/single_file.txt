@@ -1,0 +1,229 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Data; 
+using System.Data.SqlClient;
+
+namespace @database
+{
+    public class @classname
+    {
+        @property        
+
+        public @classname()
+        { }
+
+        public static bool Add(@classname value)
+        {
+            bool result = false;
+
+            SqlConnection connection = new SqlConnection("ConnectionString");
+            SqlCommand cmd = new SqlCommand("@procedurename_Add", connection);
+			@sqlparameter
+			cmd.CommandType = CommandType.StoredProcedure;
+            cmd.CommandTimeout = 0;            
+
+            try
+            {
+                if (connection.State == ConnectionState.Closed)
+				    connection.Open();
+                
+                cmd.ExecuteNonQuery();
+				result = true;
+            }
+            catch (SqlException exception)
+            {
+                result = false;
+                string Error = exception.Message;               
+            }
+            finally
+            {
+                cmd.Dispose();
+				if (connection.State == ConnectionState.Open)
+				    connection.Close();
+            }
+            return result;
+        }
+
+        public static bool Edit(@classname value)
+        {
+            bool result = false;
+
+            SqlConnection connection = new SqlConnection("ConnectionString");
+            SqlCommand cmd = new SqlCommand("@procedurename_Edit", connection);
+            @sqlparameter
+			cmd.CommandType = CommandType.StoredProcedure;
+            cmd.CommandTimeout = 0;            
+
+            try
+            {
+                if (connection.State == ConnectionState.Closed)
+				    connection.Open();
+                
+                cmd.ExecuteNonQuery();
+				result = true;
+            }
+            catch (SqlException exception)
+            {
+                result = false;
+                string Error = exception.Message;               
+            }
+            finally
+            {
+                cmd.Dispose();
+				if (connection.State == ConnectionState.Open)
+				    connection.Close();
+            }
+            return result;
+        }
+
+		public static bool Delete(string value)
+        {
+            bool result = false;
+
+            SqlConnection connection = new SqlConnection("ConnectionString");
+            SqlCommand cmd = new SqlCommand("@procedurename_Delete", connection);
+            cmd.Parameters.Add(new SqlParameter("@fielId", value));
+			cmd.CommandType = CommandType.StoredProcedure;
+            cmd.CommandTimeout = 0;            
+
+            try
+            {
+                if (connection.State == ConnectionState.Closed)
+				    connection.Open();
+                
+                cmd.ExecuteNonQuery();
+				result = true;
+            }
+            catch (SqlException exception)
+            {
+                result = false;
+                string Error = exception.Message;               
+            }
+            finally
+            {
+                cmd.Dispose();
+				if (connection.State == ConnectionState.Open)
+				    connection.Close();
+            }
+            return result;
+        }
+
+        public static @classname GetById(string value)
+        {
+            DataTable Resultado = new DataTable();
+
+            SqlConnection connection = new SqlConnection("ConnectionString");
+            SqlCommand cmd = new SqlCommand("@procedurename_GetById", connection);
+            cmd.Parameters.Add(new SqlParameter("@fielId", value));
+			cmd.CommandType = CommandType.StoredProcedure;
+            cmd.CommandTimeout = 0;    
+
+			 IDataReader drResult = null;
+             @classname record = null;
+
+            try
+            {
+                if (connection.State == ConnectionState.Closed)
+				    connection.Open();
+
+                    drResult = cmd.ExecuteReader();
+                    if (drResult.Read())
+                    {
+                        record = new Models.@classname();
+                        @sqldata
+                    }
+
+                    return record;
+            }
+            catch (SqlException exception)
+            {
+                return record;
+                string Error = exception.Message;                
+            }
+            finally
+            {
+                command.Dispose();
+				if (connection.State == ConnectionState.Open)
+				    connection.Close();
+            }
+        }
+
+	    public static @classname GetByGUID(string value)
+        {
+            DataTable Resultado = new DataTable();
+
+            SqlConnection connection = new SqlConnection("ConnectionString");
+            SqlCommand cmd = new SqlCommand("@procedurename_GetByGUID", connection);
+            cmd.Parameters.Add(new SqlParameter("@fielId", value));
+			cmd.CommandType = CommandType.StoredProcedure;
+            cmd.CommandTimeout = 0;    
+
+			 IDataReader drResult = null;
+             @classname record = null;
+
+            try
+            {
+                if (connection.State == ConnectionState.Closed)
+				    connection.Open();
+
+                    drResult = cmd.ExecuteReader();
+                    if (drResult.Read())
+                    {
+                        record = new Models.@classname();
+                        @sqldata
+                    }
+
+                    return record;
+            }
+            catch (SqlException exception)
+            {
+                return record;
+                string Error = exception.Message;                
+            }
+            finally
+            {
+                command.Dispose();
+				if (connection.State == ConnectionState.Open)
+				    connection.Close();
+            }
+        }
+
+	    public static List<@classname> GetAll()
+        {
+            SqlConnection connection = new SqlConnection("ConnectionString");
+            SqlCommand cmd = new SqlCommand("@procedurename_GetByGUID", connection);          
+			cmd.CommandType = CommandType.StoredProcedure;
+            cmd.CommandTimeout = 0;      
+
+			 IDataReader drResult = null;
+             List<@classname> records = new List<@classname>();
+
+            try
+            {
+                if (connection.State == ConnectionState.Closed)
+				    connection.Open();
+
+                    drResult = cmd.ExecuteReader();
+                    if (drResult.Read())
+                    {
+					    @classname record = new @classname();
+                        @sqldata
+						records.Add(record);
+                    }
+
+                    return records;
+            }
+            catch (SqlException exception)
+            {
+                return records;
+                string Error = exception.Message;                
+            }
+            finally
+            {
+                command.Dispose();
+				if (connection.State == ConnectionState.Open)
+				    connection.Close();
+            }
+        }
+    }
+}

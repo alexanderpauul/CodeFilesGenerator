@@ -1,0 +1,27 @@
+﻿Imports System.Collections.Generic
+
+Public Class @classname
+    Public Shared Function Add(value As Models.@classname) As Integer
+        Return Data.@classname.Add(value)
+    End Function
+
+    Public Shared Function Edit(value As Models.@classname) As Integer
+        Return Data.@classname.Edit(value)
+    End Function
+
+    Public Shared Function Delete(value As Models.@classname) As Integer
+        Return Data.@classname.Delete(value)
+    End Function
+
+    Public Shared Function GetById(Id As String) As Models.Persona
+        Return Data.@classname.GetById(Id)
+    End Function
+
+    Public Shared Function GetByGUID(Id As String) As Models.Persona
+        Return Data.@classname.GetByGUID(Id)
+    End Function
+
+    Public Shared Function GetAll() As List(Of Models.@classname)
+        Return Data.@classname.GetAll()
+    End Function
+End Class

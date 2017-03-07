@@ -1,0 +1,18 @@
+﻿USE {database}
+GO
+
+CREATE PROCEDURE {table}_Delete
+(
+       @value
+)
+AS
+BEGIN TRANSACTION
+BEGIN TRY
+		DELETE FROM {table} 
+		 WHERE {fieldId} = @value
+
+	COMMIT TRANSACTION
+END TRY
+BEGIN CATCH
+	ROLLBACK TRANSACTION
+END CATCH

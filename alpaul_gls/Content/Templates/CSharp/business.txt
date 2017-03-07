@@ -1,0 +1,37 @@
+﻿using System.Collections.Generic;
+
+namespace Business
+{
+    public class @classname
+    {
+        public static int Add(Models.@classname value)
+        {
+            return Data.@classname.Add(tEstado);
+        }
+
+        public static int Edit(Models.@classname value)
+        {
+            return Data.@classname.Edit(tEstado);
+        }
+
+        public static int Delete(Models.@classname value)
+        {
+            return Data.@classname.Remover(tEstado);
+        }
+
+        public static Models.@classname GetById(string ID)
+        {
+            return Data.@classname.GetById(ID);
+        }
+
+		public static Models.@classname GetByGUID(string ID)
+        {
+            return Data.@classname.GetByGUID(ID);
+        }
+
+        public static List<Models.@classname> GetAll()
+        {
+            return Data.@classname.GetAll();
+        }
+    }
+}

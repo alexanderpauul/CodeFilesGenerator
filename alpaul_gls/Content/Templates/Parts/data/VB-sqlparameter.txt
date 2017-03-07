@@ -1,0 +1,1 @@
+         cmd.Parameters.Add(New SqlParameter("@{fieldname}", value.{fieldname}))

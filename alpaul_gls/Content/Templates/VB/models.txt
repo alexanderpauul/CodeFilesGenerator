@@ -1,0 +1,4 @@
+Imports System
+
+Public Class @classname
+@propertyEnd Class

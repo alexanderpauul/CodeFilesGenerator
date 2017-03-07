@@ -1,0 +1,25 @@
+﻿USE {database}
+GO
+
+CREATE PROCEDURE {table}_Add
+(
+       {ParametersType}
+)
+AS
+BEGIN TRANSACTION
+BEGIN TRY
+	INSERT INTO {table}
+	            (
+				 {fields}
+				)
+		 VALUES (
+		         {Parameters}
+				)
+
+	COMMIT TRANSACTION
+
+	SELECT ISNULL(CAST(SCOPE_IDENTITY() AS INT), 0)
+END TRY
+BEGIN CATCH
+	ROLLBACK TRANSACTION
+END CATCH

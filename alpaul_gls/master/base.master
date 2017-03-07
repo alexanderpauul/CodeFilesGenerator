@@ -1,0 +1,51 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="base.master.cs" Inherits="alpaul_gls.master._base" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>alpaul - gsl | Welcome</title>
+    <link rel="stylesheet" href="~/css/foundation-icons.css" />
+    <link rel="stylesheet" href="~/css/foundation.min.css" />
+    <link rel="stylesheet" href="<%= ResolveUrl("~/css/Validador.css") %>" />
+
+    <style type="text/css">
+        .body {
+            padding-top: 20px;
+        }
+    </style>
+
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="frm" runat="server">
+        <div class="top-bar">
+            <div class="row">
+                <div class="top-bar-left">
+                    <ul class="dropdown menu">
+                        <li class="menu-text">alpaul - gls</li>
+                        <li><a href="#">Info</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="body">
+            <asp:ContentPlaceHolder ID="body" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+    </form>
+
+    <script type="text/javascript" src="<%= ResolveUrl("~/js/Validador.js")%>"></script>
+    <script src="/js/jquery-2.1.4.min.js"></script>
+    <script src="/js/foundation.js"></script>
+    <script>
+        $(document).foundation();
+    </script>
+</body>
+</html>

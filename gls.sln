@@ -1,0 +1,27 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.40629.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Application", "Application", "{59CCC888-68AB-451F-BBB3-1BC3DFF28481}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "alpaul_gls", "alpaul_gls\alpaul_gls.csproj", "{33F7614D-D8C6-4690-85E7-BDB139574997}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{33F7614D-D8C6-4690-85E7-BDB139574997}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{33F7614D-D8C6-4690-85E7-BDB139574997}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{33F7614D-D8C6-4690-85E7-BDB139574997}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{33F7614D-D8C6-4690-85E7-BDB139574997}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{33F7614D-D8C6-4690-85E7-BDB139574997} = {59CCC888-68AB-451F-BBB3-1BC3DFF28481}
+	EndGlobalSection
+EndGlobal

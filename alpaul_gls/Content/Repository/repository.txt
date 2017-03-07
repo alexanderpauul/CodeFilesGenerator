@@ -1,0 +1,15 @@
+﻿  <script type="text/javascript">
+        function pageLoad() {
+            window.onload = function () {
+                var short = document.getElementsByClassName("short");
+                for (var i = 0; i < short.length; i++) {
+                    var text = short[i].textContent;
+                    text = text.substring(0, 30);
+                    if (text.length == 30) {
+                        text = text + "...";
+                    }
+                    short[i].innerHTML = text;
+                }
+            }
+        }
+    </script>

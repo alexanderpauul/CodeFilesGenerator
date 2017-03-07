@@ -1,0 +1,505 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{33F7614D-D8C6-4690-85E7-BDB139574997}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>alpaul_gls</RootNamespace>
+    <AssemblyName>alpaul_gls</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Ionic.Zip, Version=1.9.8.0, Culture=neutral, PublicKeyToken=6583c7c814667745, processorArchitecture=MSIL">
+      <HintPath>..\packages\DotNetZip.1.9.8\lib\net20\Ionic.Zip.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.SqlServer.ConnectionInfo, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.SqlServer.Management.Sdk.Sfc, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.SqlServer.Smo, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.SqlServer.SqlEnum, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\Repository\repository.txt" />
+    <Content Include="Content\Templates\CSharp\business.txt" />
+    <Content Include="Content\Templates\CSharp\data.txt" />
+    <Content Include="Content\Templates\CSharp\models.txt" />
+    <Content Include="Content\Templates\CSharp\single_file.txt" />
+    <Content Include="Content\Templates\Parts\data\Csharp-sqldata.txt" />
+    <Content Include="Content\Templates\Parts\data\Csharp-sqlparameter.txt" />
+    <Content Include="Content\Templates\Parts\data\Csharp-sqlrecords.txt" />
+    <Content Include="Content\Templates\Parts\data\VB-sqldata.txt" />
+    <Content Include="Content\Templates\Parts\data\VB-sqlparameter.txt" />
+    <Content Include="Content\Templates\Parts\data\VB-sqlrecords.txt" />
+    <Content Include="Content\Templates\Parts\models\Csharp.txt" />
+    <Content Include="Content\Templates\Parts\models\VB.txt" />
+    <Content Include="Content\Templates\SQL\Delete.txt" />
+    <Content Include="Content\Templates\SQL\Add.txt" />
+    <Content Include="Content\Templates\SQL\SelectAll.txt" />
+    <Content Include="Content\Templates\SQL\SelectById.txt" />
+    <Content Include="Content\Templates\SQL\SelectByGUID.txt" />
+    <Content Include="Content\Templates\SQL\Edit.txt" />
+    <Content Include="Content\Templates\VB\business.txt" />
+    <Content Include="Content\Templates\VB\data.txt" />
+    <Content Include="Content\Templates\VB\models.txt" />
+    <Content Include="Content\Templates\VB\single_file.txt" />
+    <Content Include="css\foundation.min.css" />
+    <Content Include="css\Validador.css" />
+    <Content Include="Global.asax" />
+    <Content Include="img\loader2.gif" />
+    <Content Include="img\loader3.gif" />
+    <Content Include="index.aspx" />
+    <Content Include="js\foundation.js" />
+    <Content Include="js\jquery-2.1.4.min.js" />
+    <Content Include="js\Validador.js" />
+    <Content Include="master\base.master" />
+    <Content Include="fonts\.DS_Store" />
+    <Content Include="fonts\.fontcustom-data" />
+    <Content Include="fonts\foundation-icons.eot" />
+    <Content Include="fonts\foundation-icons.ttf" />
+    <Content Include="fonts\foundation-icons.woff" />
+    <Content Include="packages.config" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\foundation-icons.svg" />
+    <Content Include="fonts\svgs\fi-address-book.svg" />
+    <Content Include="fonts\svgs\fi-alert.svg" />
+    <Content Include="fonts\svgs\fi-align-center.svg" />
+    <Content Include="fonts\svgs\fi-align-justify.svg" />
+    <Content Include="fonts\svgs\fi-align-left.svg" />
+    <Content Include="fonts\svgs\fi-align-right.svg" />
+    <Content Include="fonts\svgs\fi-anchor.svg" />
+    <Content Include="fonts\svgs\fi-annotate.svg" />
+    <Content Include="fonts\svgs\fi-archive.svg" />
+    <Content Include="fonts\svgs\fi-arrow-down.svg" />
+    <Content Include="fonts\svgs\fi-arrow-left.svg" />
+    <Content Include="fonts\svgs\fi-arrow-right.svg" />
+    <Content Include="fonts\svgs\fi-arrow-up.svg" />
+    <Content Include="fonts\svgs\fi-arrows-compress.svg" />
+    <Content Include="fonts\svgs\fi-arrows-expand.svg" />
+    <Content Include="fonts\svgs\fi-arrows-in.svg" />
+    <Content Include="fonts\svgs\fi-arrows-out.svg" />
+    <Content Include="fonts\svgs\fi-asl.svg" />
+    <Content Include="fonts\svgs\fi-asterisk.svg" />
+    <Content Include="fonts\svgs\fi-at-sign.svg" />
+    <Content Include="fonts\svgs\fi-background-color.svg" />
+    <Content Include="fonts\svgs\fi-battery-empty.svg" />
+    <Content Include="fonts\svgs\fi-battery-full.svg" />
+    <Content Include="fonts\svgs\fi-battery-half.svg" />
+    <Content Include="fonts\svgs\fi-bitcoin-circle.svg" />
+    <Content Include="fonts\svgs\fi-bitcoin.svg" />
+    <Content Include="fonts\svgs\fi-blind.svg" />
+    <Content Include="fonts\svgs\fi-bluetooth.svg" />
+    <Content Include="fonts\svgs\fi-bold.svg" />
+    <Content Include="fonts\svgs\fi-book-bookmark.svg" />
+    <Content Include="fonts\svgs\fi-book.svg" />
+    <Content Include="fonts\svgs\fi-bookmark.svg" />
+    <Content Include="fonts\svgs\fi-braille.svg" />
+    <Content Include="fonts\svgs\fi-burst-new.svg" />
+    <Content Include="fonts\svgs\fi-burst-sale.svg" />
+    <Content Include="fonts\svgs\fi-burst.svg" />
+    <Content Include="fonts\svgs\fi-calendar.svg" />
+    <Content Include="fonts\svgs\fi-camera.svg" />
+    <Content Include="fonts\svgs\fi-check.svg" />
+    <Content Include="fonts\svgs\fi-checkbox.svg" />
+    <Content Include="fonts\svgs\fi-clipboard-notes.svg" />
+    <Content Include="fonts\svgs\fi-clipboard-pencil.svg" />
+    <Content Include="fonts\svgs\fi-clipboard.svg" />
+    <Content Include="fonts\svgs\fi-clock.svg" />
+    <Content Include="fonts\svgs\fi-closed-caption.svg" />
+    <Content Include="fonts\svgs\fi-cloud.svg" />
+    <Content Include="fonts\svgs\fi-comment-minus.svg" />
+    <Content Include="fonts\svgs\fi-comment-quotes.svg" />
+    <Content Include="fonts\svgs\fi-comment-video.svg" />
+    <Content Include="fonts\svgs\fi-comment.svg" />
+    <Content Include="fonts\svgs\fi-comments.svg" />
+    <Content Include="fonts\svgs\fi-compass.svg" />
+    <Content Include="fonts\svgs\fi-contrast.svg" />
+    <Content Include="fonts\svgs\fi-credit-card.svg" />
+    <Content Include="fonts\svgs\fi-crop.svg" />
+    <Content Include="fonts\svgs\fi-crown.svg" />
+    <Content Include="fonts\svgs\fi-css3.svg" />
+    <Content Include="fonts\svgs\fi-database.svg" />
+    <Content Include="fonts\svgs\fi-die-five.svg" />
+    <Content Include="fonts\svgs\fi-die-four.svg" />
+    <Content Include="fonts\svgs\fi-die-one.svg" />
+    <Content Include="fonts\svgs\fi-die-six.svg" />
+    <Content Include="fonts\svgs\fi-die-three.svg" />
+    <Content Include="fonts\svgs\fi-die-two.svg" />
+    <Content Include="fonts\svgs\fi-dislike.svg" />
+    <Content Include="fonts\svgs\fi-dollar-bill.svg" />
+    <Content Include="fonts\svgs\fi-dollar.svg" />
+    <Content Include="fonts\svgs\fi-download.svg" />
+    <Content Include="fonts\svgs\fi-eject.svg" />
+    <Content Include="fonts\svgs\fi-elevator.svg" />
+    <Content Include="fonts\svgs\fi-euro.svg" />
+    <Content Include="fonts\svgs\fi-eye.svg" />
+    <Content Include="fonts\svgs\fi-fast-forward.svg" />
+    <Content Include="fonts\svgs\fi-female-symbol.svg" />
+    <Content Include="fonts\svgs\fi-female.svg" />
+    <Content Include="fonts\svgs\fi-filter.svg" />
+    <Content Include="fonts\svgs\fi-first-aid.svg" />
+    <Content Include="fonts\svgs\fi-flag.svg" />
+    <Content Include="fonts\svgs\fi-folder-add.svg" />
+    <Content Include="fonts\svgs\fi-folder-lock.svg" />
+    <Content Include="fonts\svgs\fi-folder.svg" />
+    <Content Include="fonts\svgs\fi-foot.svg" />
+    <Content Include="fonts\svgs\fi-foundation.svg" />
+    <Content Include="fonts\svgs\fi-graph-bar.svg" />
+    <Content Include="fonts\svgs\fi-graph-horizontal.svg" />
+    <Content Include="fonts\svgs\fi-graph-pie.svg" />
+    <Content Include="fonts\svgs\fi-graph-trend.svg" />
+    <Content Include="fonts\svgs\fi-guide-dog.svg" />
+    <Content Include="fonts\svgs\fi-hearing-aid.svg" />
+    <Content Include="fonts\svgs\fi-heart.svg" />
+    <Content Include="fonts\svgs\fi-home.svg" />
+    <Content Include="fonts\svgs\fi-html5.svg" />
+    <Content Include="fonts\svgs\fi-indent-less.svg" />
+    <Content Include="fonts\svgs\fi-indent-more.svg" />
+    <Content Include="fonts\svgs\fi-info.svg" />
+    <Content Include="fonts\svgs\fi-italic.svg" />
+    <Content Include="fonts\svgs\fi-key.svg" />
+    <Content Include="fonts\svgs\fi-laptop.svg" />
+    <Content Include="fonts\svgs\fi-layout.svg" />
+    <Content Include="fonts\svgs\fi-lightbulb.svg" />
+    <Content Include="fonts\svgs\fi-like.svg" />
+    <Content Include="fonts\svgs\fi-link.svg" />
+    <Content Include="fonts\svgs\fi-list-bullet.svg" />
+    <Content Include="fonts\svgs\fi-list-number.svg" />
+    <Content Include="fonts\svgs\fi-list-thumbnails.svg" />
+    <Content Include="fonts\svgs\fi-list.svg" />
+    <Content Include="fonts\svgs\fi-lock.svg" />
+    <Content Include="fonts\svgs\fi-loop.svg" />
+    <Content Include="fonts\svgs\fi-magnifying-glass.svg" />
+    <Content Include="fonts\svgs\fi-mail.svg" />
+    <Content Include="fonts\svgs\fi-male-female.svg" />
+    <Content Include="fonts\svgs\fi-male-symbol.svg" />
+    <Content Include="fonts\svgs\fi-male.svg" />
+    <Content Include="fonts\svgs\fi-map.svg" />
+    <Content Include="fonts\svgs\fi-marker.svg" />
+    <Content Include="fonts\svgs\fi-megaphone.svg" />
+    <Content Include="fonts\svgs\fi-microphone.svg" />
+    <Content Include="fonts\svgs\fi-minus-circle.svg" />
+    <Content Include="fonts\svgs\fi-minus.svg" />
+    <Content Include="fonts\svgs\fi-mobile-signal.svg" />
+    <Content Include="fonts\svgs\fi-mobile.svg" />
+    <Content Include="fonts\svgs\fi-monitor.svg" />
+    <Content Include="fonts\svgs\fi-mountains.svg" />
+    <Content Include="fonts\svgs\fi-music.svg" />
+    <Content Include="fonts\svgs\fi-next.svg" />
+    <Content Include="fonts\svgs\fi-no-dogs.svg" />
+    <Content Include="fonts\svgs\fi-no-smoking.svg" />
+    <Content Include="fonts\svgs\fi-page-add.svg" />
+    <Content Include="fonts\svgs\fi-page-copy.svg" />
+    <Content Include="fonts\svgs\fi-page-csv.svg" />
+    <Content Include="fonts\svgs\fi-page-delete.svg" />
+    <Content Include="fonts\svgs\fi-page-doc.svg" />
+    <Content Include="fonts\svgs\fi-page-edit.svg" />
+    <Content Include="fonts\svgs\fi-page-export-csv.svg" />
+    <Content Include="fonts\svgs\fi-page-export-doc.svg" />
+    <Content Include="fonts\svgs\fi-page-export-pdf.svg" />
+    <Content Include="fonts\svgs\fi-page-export.svg" />
+    <Content Include="fonts\svgs\fi-page-filled.svg" />
+    <Content Include="fonts\svgs\fi-page-multiple.svg" />
+    <Content Include="fonts\svgs\fi-page-pdf.svg" />
+    <Content Include="fonts\svgs\fi-page-remove.svg" />
+    <Content Include="fonts\svgs\fi-page-search.svg" />
+    <Content Include="fonts\svgs\fi-page.svg" />
+    <Content Include="fonts\svgs\fi-paint-bucket.svg" />
+    <Content Include="fonts\svgs\fi-paperclip.svg" />
+    <Content Include="fonts\svgs\fi-pause.svg" />
+    <Content Include="fonts\svgs\fi-paw.svg" />
+    <Content Include="fonts\svgs\fi-paypal.svg" />
+    <Content Include="fonts\svgs\fi-pencil.svg" />
+    <Content Include="fonts\svgs\fi-photo.svg" />
+    <Content Include="fonts\svgs\fi-play-circle.svg" />
+    <Content Include="fonts\svgs\fi-play-video.svg" />
+    <Content Include="fonts\svgs\fi-play.svg" />
+    <Content Include="fonts\svgs\fi-plus.svg" />
+    <Content Include="fonts\svgs\fi-pound.svg" />
+    <Content Include="fonts\svgs\fi-power.svg" />
+    <Content Include="fonts\svgs\fi-previous.svg" />
+    <Content Include="fonts\svgs\fi-price-tag.svg" />
+    <Content Include="fonts\svgs\fi-pricetag-multiple.svg" />
+    <Content Include="fonts\svgs\fi-print.svg" />
+    <Content Include="fonts\svgs\fi-prohibited.svg" />
+    <Content Include="fonts\svgs\fi-projection-screen.svg" />
+    <Content Include="fonts\svgs\fi-puzzle.svg" />
+    <Content Include="fonts\svgs\fi-quote.svg" />
+    <Content Include="fonts\svgs\fi-record.svg" />
+    <Content Include="fonts\svgs\fi-refresh.svg" />
+    <Content Include="fonts\svgs\fi-results-demographics.svg" />
+    <Content Include="fonts\svgs\fi-results.svg" />
+    <Content Include="fonts\svgs\fi-rewind-ten.svg" />
+    <Content Include="fonts\svgs\fi-rewind.svg" />
+    <Content Include="fonts\svgs\fi-rss.svg" />
+    <Content Include="fonts\svgs\fi-safety-cone.svg" />
+    <Content Include="fonts\svgs\fi-save.svg" />
+    <Content Include="fonts\svgs\fi-share.svg" />
+    <Content Include="fonts\svgs\fi-sheriff-badge.svg" />
+    <Content Include="fonts\svgs\fi-shield.svg" />
+    <Content Include="fonts\svgs\fi-shopping-bag.svg" />
+    <Content Include="fonts\svgs\fi-shopping-cart.svg" />
+    <Content Include="fonts\svgs\fi-shuffle.svg" />
+    <Content Include="fonts\svgs\fi-skull.svg" />
+    <Content Include="fonts\svgs\fi-social-500px.svg" />
+    <Content Include="fonts\svgs\fi-social-adobe.svg" />
+    <Content Include="fonts\svgs\fi-social-amazon.svg" />
+    <Content Include="fonts\svgs\fi-social-android.svg" />
+    <Content Include="fonts\svgs\fi-social-apple.svg" />
+    <Content Include="fonts\svgs\fi-social-behance.svg" />
+    <Content Include="fonts\svgs\fi-social-bing.svg" />
+    <Content Include="fonts\svgs\fi-social-blogger.svg" />
+    <Content Include="fonts\svgs\fi-social-delicious.svg" />
+    <Content Include="fonts\svgs\fi-social-designer-news.svg" />
+    <Content Include="fonts\svgs\fi-social-deviant-art.svg" />
+    <Content Include="fonts\svgs\fi-social-digg.svg" />
+    <Content Include="fonts\svgs\fi-social-dribbble.svg" />
+    <Content Include="fonts\svgs\fi-social-drive.svg" />
+    <Content Include="fonts\svgs\fi-social-dropbox.svg" />
+    <Content Include="fonts\svgs\fi-social-evernote.svg" />
+    <Content Include="fonts\svgs\fi-social-facebook.svg" />
+    <Content Include="fonts\svgs\fi-social-flickr.svg" />
+    <Content Include="fonts\svgs\fi-social-forrst.svg" />
+    <Content Include="fonts\svgs\fi-social-foursquare.svg" />
+    <Content Include="fonts\svgs\fi-social-game-center.svg" />
+    <Content Include="fonts\svgs\fi-social-github.svg" />
+    <Content Include="fonts\svgs\fi-social-google-plus.svg" />
+    <Content Include="fonts\svgs\fi-social-hacker-news.svg" />
+    <Content Include="fonts\svgs\fi-social-hi5.svg" />
+    <Content Include="fonts\svgs\fi-social-instagram.svg" />
+    <Content Include="fonts\svgs\fi-social-joomla.svg" />
+    <Content Include="fonts\svgs\fi-social-lastfm.svg" />
+    <Content Include="fonts\svgs\fi-social-linkedin.svg" />
+    <Content Include="fonts\svgs\fi-social-medium.svg" />
+    <Content Include="fonts\svgs\fi-social-myspace.svg" />
+    <Content Include="fonts\svgs\fi-social-orkut.svg" />
+    <Content Include="fonts\svgs\fi-social-path.svg" />
+    <Content Include="fonts\svgs\fi-social-picasa.svg" />
+    <Content Include="fonts\svgs\fi-social-pinterest.svg" />
+    <Content Include="fonts\svgs\fi-social-rdio.svg" />
+    <Content Include="fonts\svgs\fi-social-reddit.svg" />
+    <Content Include="fonts\svgs\fi-social-skillshare.svg" />
+    <Content Include="fonts\svgs\fi-social-skype.svg" />
+    <Content Include="fonts\svgs\fi-social-smashing-mag.svg" />
+    <Content Include="fonts\svgs\fi-social-snapchat.svg" />
+    <Content Include="fonts\svgs\fi-social-spotify.svg" />
+    <Content Include="fonts\svgs\fi-social-squidoo.svg" />
+    <Content Include="fonts\svgs\fi-social-stack-overflow.svg" />
+    <Content Include="fonts\svgs\fi-social-steam.svg" />
+    <Content Include="fonts\svgs\fi-social-stumbleupon.svg" />
+    <Content Include="fonts\svgs\fi-social-treehouse.svg" />
+    <Content Include="fonts\svgs\fi-social-tumblr.svg" />
+    <Content Include="fonts\svgs\fi-social-twitter.svg" />
+    <Content Include="fonts\svgs\fi-social-vimeo.svg" />
+    <Content Include="fonts\svgs\fi-social-windows.svg" />
+    <Content Include="fonts\svgs\fi-social-xbox.svg" />
+    <Content Include="fonts\svgs\fi-social-yahoo.svg" />
+    <Content Include="fonts\svgs\fi-social-yelp.svg" />
+    <Content Include="fonts\svgs\fi-social-youtube.svg" />
+    <Content Include="fonts\svgs\fi-social-zerply.svg" />
+    <Content Include="fonts\svgs\fi-social-zurb.svg" />
+    <Content Include="fonts\svgs\fi-sound.svg" />
+    <Content Include="fonts\svgs\fi-star.svg" />
+    <Content Include="fonts\svgs\fi-stop.svg" />
+    <Content Include="fonts\svgs\fi-strikethrough.svg" />
+    <Content Include="fonts\svgs\fi-subscript.svg" />
+    <Content Include="fonts\svgs\fi-superscript.svg" />
+    <Content Include="fonts\svgs\fi-tablet-landscape.svg" />
+    <Content Include="fonts\svgs\fi-tablet-portrait.svg" />
+    <Content Include="fonts\svgs\fi-target-two.svg" />
+    <Content Include="fonts\svgs\fi-target.svg" />
+    <Content Include="fonts\svgs\fi-telephone-accessible.svg" />
+    <Content Include="fonts\svgs\fi-telephone.svg" />
+    <Content Include="fonts\svgs\fi-text-color.svg" />
+    <Content Include="fonts\svgs\fi-thumbnails.svg" />
+    <Content Include="fonts\svgs\fi-ticket.svg" />
+    <Content Include="fonts\svgs\fi-torso-business.svg" />
+    <Content Include="fonts\svgs\fi-torso-female.svg" />
+    <Content Include="fonts\svgs\fi-torso.svg" />
+    <Content Include="fonts\svgs\fi-torsos-all-female.svg" />
+    <Content Include="fonts\svgs\fi-torsos-all.svg" />
+    <Content Include="fonts\svgs\fi-torsos-female-male.svg" />
+    <Content Include="fonts\svgs\fi-torsos-male-female.svg" />
+    <Content Include="fonts\svgs\fi-torsos.svg" />
+    <Content Include="fonts\svgs\fi-trash.svg" />
+    <Content Include="fonts\svgs\fi-trees.svg" />
+    <Content Include="fonts\svgs\fi-trophy.svg" />
+    <Content Include="fonts\svgs\fi-underline.svg" />
+    <Content Include="fonts\svgs\fi-universal-access.svg" />
+    <Content Include="fonts\svgs\fi-unlink.svg" />
+    <Content Include="fonts\svgs\fi-unlock.svg" />
+    <Content Include="fonts\svgs\fi-upload-cloud.svg" />
+    <Content Include="fonts\svgs\fi-upload.svg" />
+    <Content Include="fonts\svgs\fi-usb.svg" />
+    <Content Include="fonts\svgs\fi-video.svg" />
+    <Content Include="fonts\svgs\fi-volume-none.svg" />
+    <Content Include="fonts\svgs\fi-volume-strike.svg" />
+    <Content Include="fonts\svgs\fi-volume.svg" />
+    <Content Include="fonts\svgs\fi-web.svg" />
+    <Content Include="fonts\svgs\fi-wheelchair.svg" />
+    <Content Include="fonts\svgs\fi-widget.svg" />
+    <Content Include="fonts\svgs\fi-wrench.svg" />
+    <Content Include="fonts\svgs\fi-x-circle.svg" />
+    <Content Include="fonts\svgs\fi-x.svg" />
+    <Content Include="fonts\svgs\fi-yen.svg" />
+    <Content Include="fonts\svgs\fi-zoom-in.svg" />
+    <Content Include="fonts\svgs\fi-zoom-out.svg" />
+    <Content Include="css\foundation-icons.css" />
+    <Content Include="SGI\generator\generator_download.aspx" />
+    <Content Include="SGI\generator\generator_information.aspx" />
+    <Content Include="SGI\generator\generator_process.aspx" />
+    <Content Include="SGI\generator\generator_tables.aspx" />
+    <Content Include="Template\product-page.html" />
+    <Content Include="SGI\generator\generator_connection.aspx" />
+    <Content Include="Template\preview.html" />
+    <Content Include="Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="index.aspx.cs">
+      <DependentUpon>index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="index.aspx.designer.cs">
+      <DependentUpon>index.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="master\base.master.cs">
+      <DependentUpon>base.master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="master\base.master.designer.cs">
+      <DependentUpon>base.master</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Builder.cs" />
+    <Compile Include="Models\Entities.cs" />
+    <Compile Include="Models\Paths.cs" />
+    <Compile Include="Models\Utils.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SGI\generator\generator_connection.aspx.cs">
+      <DependentUpon>generator_connection.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SGI\generator\generator_connection.aspx.designer.cs">
+      <DependentUpon>generator_connection.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SGI\generator\generator_download.aspx.cs">
+      <DependentUpon>generator_download.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SGI\generator\generator_download.aspx.designer.cs">
+      <DependentUpon>generator_download.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SGI\generator\generator_information.aspx.cs">
+      <DependentUpon>generator_information.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SGI\generator\generator_information.aspx.designer.cs">
+      <DependentUpon>generator_information.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SGI\generator\generator_process.aspx.cs">
+      <DependentUpon>generator_process.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SGI\generator\generator_process.aspx.designer.cs">
+      <DependentUpon>generator_process.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SGI\generator\generator_tables.aspx.cs">
+      <DependentUpon>generator_tables.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SGI\generator\generator_tables.aspx.designer.cs">
+      <DependentUpon>generator_tables.aspx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Content\Downloadable\" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>22263</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:22263/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

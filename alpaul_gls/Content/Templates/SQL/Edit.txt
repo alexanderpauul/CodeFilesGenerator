@@ -1,0 +1,19 @@
+﻿USE {database}
+GO
+
+CREATE PROCEDURE {table}_Edit
+(
+       {ParametersType}
+)
+AS
+BEGIN TRANSACTION
+BEGIN TRY
+		UPDATE {table} 
+		   SET {fields}
+		 WHERE {fieldId}
+
+	COMMIT TRANSACTION
+END TRY
+BEGIN CATCH
+	ROLLBACK TRANSACTION
+END CATCH
