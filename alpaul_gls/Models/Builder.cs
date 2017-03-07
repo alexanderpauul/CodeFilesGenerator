@@ -68,6 +68,9 @@ public class Builder
         string linePropertyParameter = string.Empty;
         string linePropertyRecords = string.Empty;
 
+        // SP Name
+        string procedurename = string.Empty;
+
         // Paths
         string dataTemplate = System.Web.HttpContext.Current.Server.MapPath(Paths.dataTemplate.Replace("{language}", language));
         string dataParameter = System.Web.HttpContext.Current.Server.MapPath(Paths.dataPartsParameter.Replace("{language}", language));
@@ -108,6 +111,7 @@ public class Builder
         {
             makerPropertyParameter.Append(linePropertyParameter.Replace("{fieldname}", field.COLUMN_NAME) + Environment.NewLine);
             makerPropertyRecords.Append(linePropertyRecords.Replace("{fieldname}", field.COLUMN_NAME).Replace("{type}", field.CLASS_TYPE) + Environment.NewLine);
+            procedurename = string.Format("{0}.{1}", field.TABLE_SCHEMA, field.TABLE_NAME);
         }
 
         makerPropertyParameter.AppendLine();
@@ -116,6 +120,7 @@ public class Builder
         // Adding properties
         StreamWriter sw = new StreamWriter(file, true, Encoding.ASCII);
         sw.Write(lineTemplate.Replace("@classname", table)
+                             .Replace("@procedurename", procedurename)
                              .Replace("@sqlparameter", makerPropertyParameter.ToString())
                              .Replace("@sqldata", makerPropertyRecords.ToString()));
         sw.Close();
@@ -162,6 +167,9 @@ public class Builder
         string lineProperty = string.Empty;
         string linePropertyParameter = string.Empty;
         string linePropertyRecords = string.Empty;
+
+        // SP Name
+        string procedurename = string.Empty;
 
         // Paths
         string dataTemplate = System.Web.HttpContext.Current.Server.MapPath(Paths.singleFileTemplate.Replace("{language}", language));
@@ -214,6 +222,7 @@ public class Builder
             makerProperty.Append(lineProperty.Replace("{type}", field.CLASS_TYPE).Replace("{fieldname}", field.COLUMN_NAME) + Environment.NewLine);
             makerPropertyParameter.Append(linePropertyParameter.Replace("{fieldname}", field.COLUMN_NAME) + Environment.NewLine);
             makerPropertyRecords.Append(linePropertyRecords.Replace("{fieldname}", field.COLUMN_NAME).Replace("{type}", field.CLASS_TYPE) + Environment.NewLine);
+            procedurename = string.Format("{0}.{1}", field.TABLE_SCHEMA, field.TABLE_NAME);
         }
 
         makerProperty.AppendLine();
@@ -223,6 +232,7 @@ public class Builder
         // Adding properties
         StreamWriter sw = new StreamWriter(file, true, Encoding.ASCII);
         sw.Write(lineTemplate.Replace("@classname", table)
+                             .Replace("@procedurename", procedurename)
                              .Replace("@property", makerProperty.ToString())
                              .Replace("@sqlparameter", makerPropertyParameter.ToString())
                              .Replace("@sqldata", makerPropertyRecords.ToString()));
@@ -261,12 +271,12 @@ public class Builder
         string directory = System.Web.HttpContext.Current.Server.MapPath(Paths.downloableSqlFileUrl.Replace("{directoryname}", property.DOWNLOABLE_NAME));
 
         // Files
-        string sqladdfilename = string.Format("{0}_{1}_Add.sql", schema, Utils.singular(table));
-        string sqldeletefilename = string.Format("{0}_{1}_Delete.sql", schema, Utils.singular(table));
-        string sqleditfilename = string.Format("{0}_{1}_Edit.sql", schema, Utils.singular(table));
-        string sqlselecctallfilename = string.Format("{0}_{1}_SelectAll.sql", schema, Utils.singular(table));
-        string sqlselecctbyidfilename = string.Format("{0}_{1}_SelectById.sql", schema, Utils.singular(table));
-        string sqlselecctbyguidfilename = string.Format("{0}_{1}_SelectByGUID.sql", schema, Utils.singular(table));
+        string sqladdfilename = string.Format("{0}_{1}_Add.sql", schema, table);
+        string sqldeletefilename = string.Format("{0}_{1}_Delete.sql", schema, table);
+        string sqleditfilename = string.Format("{0}_{1}_Edit.sql", schema, table);
+        string sqlselecctallfilename = string.Format("{0}_{1}_SelectAll.sql", schema, table);
+        string sqlselecctbyidfilename = string.Format("{0}_{1}_SelectById.sql", schema, table);
+        string sqlselecctbyguidfilename = string.Format("{0}_{1}_SelectByGUID.sql", schema, table);
 
 
         string sqladdfile = System.Web.HttpContext.Current.Server.MapPath(Paths.sqlfile.Replace("{database}", property.DOWNLOABLE_NAME).Replace("{filename}", sqladdfilename));

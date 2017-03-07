@@ -57,6 +57,7 @@ namespace alpaul_gls.SGI.generator
                                 Entities.Fields record = new Entities.Fields();
                                 record.TABLE_CATALOG = (string)(drResult["TABLE_CATALOG"].ToString());
                                 record.TABLE_NAME = (string)(drResult["TABLE_NAME"].ToString());
+                                record.TABLE_SCHEMA = (string)(drResult["TABLE_SCHEMA"].ToString());
                                 record.ORDINAL_POSITION = (int)(drResult["ORDINAL_POSITION"]);
                                 record.COLUMN_NAME = (string)(drResult["COLUMN_NAME"].ToString());
                                 record.DATA_TYPE = (string)(drResult["DATA_TYPE"].ToString());

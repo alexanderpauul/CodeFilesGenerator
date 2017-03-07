@@ -78,9 +78,9 @@ public class Utils
                    "                     FROM INFORMATION_SCHEMA.CONSTRAINT_COLUMN_USAGE A " +
                    "                          INNER JOIN INFORMATION_SCHEMA.TABLE_CONSTRAINTS B ON B.CONSTRAINT_NAME = A.CONSTRAINT_NAME " +
                    "                    WHERE B.CONSTRAINT_TYPE = 'PRIMARY KEY'  ) D ON D.COLUMN_NAME = A.COLUMN_NAME " +
-                   "                    and d.TABLE_CATALOG = a.TABLE_CATALOG " +
-                   "                    and d.TABLE_SCHEMA = a.TABLE_SCHEMA " +
-                   "                    and d.TABLE_NAME = a.TABLE_NAME " +
+                   "                          AND d.TABLE_CATALOG = a.TABLE_CATALOG " +
+                   "                          AND d.TABLE_SCHEMA = a.TABLE_SCHEMA " +
+                   "                          AND d.TABLE_NAME = a.TABLE_NAME " +
                    "       LEFT  JOIN #CSTYPES E ON E.SQL_TYPE = A.DATA_TYPE " +
                    " WHERE A.TABLE_CATALOG = '{database}' And A.TABLE_SCHEMA = '{schema}'  AND A.TABLE_NAME = '{table}' " +
                    " ORDER BY A.ORDINAL_POSITION";
