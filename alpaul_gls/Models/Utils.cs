@@ -66,7 +66,7 @@ public class Utils
                    "     E(SQL_TYPE, CLASS_TYPE) " +
 
                    "   USE {database} " +
-                   "SELECT A.TABLE_CATALOG, A.TABLE_SCHEMA, A.TABLE_NAME, A.ORDINAL_POSITION, A.COLUMN_NAME, A.DATA_TYPE, A.IS_NULLABLE, " +
+                   "SELECT DISTINCT  A.TABLE_CATALOG, A.TABLE_SCHEMA, A.TABLE_NAME, A.ORDINAL_POSITION, A.COLUMN_NAME, A.DATA_TYPE, A.IS_NULLABLE, " +
                    "       ISNULL(A.CHARACTER_MAXIMUM_LENGTH, 0) CHARACTER_MAXIMUM_LENGTH, C.CONSTRAINT_TYPE, KEY_CODE = CASE WHEN C.CONSTRAINT_TYPE = 'PRIMARY KEY' THEN 1 " +
                    "                                                                                                          WHEN C.CONSTRAINT_TYPE = 'FOREIGN KEY' THEN 2 " +
                    "                                                                                                          ELSE 0 END, " +
@@ -74,12 +74,15 @@ public class Utils
                    "  FROM INFORMATION_SCHEMA.COLUMNS A " +
                    "       LEFT JOIN INFORMATION_SCHEMA.CONSTRAINT_COLUMN_USAGE B ON A.TABLE_NAME = B.TABLE_NAME AND A.COLUMN_NAME = B.COLUMN_NAME " +
                    "       LEFT JOIN INFORMATION_SCHEMA.TABLE_CONSTRAINTS C ON B.CONSTRAINT_NAME = C.CONSTRAINT_NAME AND B.TABLE_NAME = C.TABLE_NAME " +
-                   "       LEFT JOIN ( SELECT A.TABLE_CATALOG, A.CONSTRAINT_SCHEMA, A.TABLE_NAME, A.COLUMN_NAME, B.CONSTRAINT_TYPE " +
+                   "       LEFT JOIN ( SELECT A.TABLE_CATALOG, A.CONSTRAINT_SCHEMA, A.TABLE_NAME, A.COLUMN_NAME, B.CONSTRAINT_TYPE, A.TABLE_SCHEMA " +
                    "                     FROM INFORMATION_SCHEMA.CONSTRAINT_COLUMN_USAGE A " +
                    "                          INNER JOIN INFORMATION_SCHEMA.TABLE_CONSTRAINTS B ON B.CONSTRAINT_NAME = A.CONSTRAINT_NAME " +
                    "                    WHERE B.CONSTRAINT_TYPE = 'PRIMARY KEY'  ) D ON D.COLUMN_NAME = A.COLUMN_NAME " +
+                   "                    and d.TABLE_CATALOG = a.TABLE_CATALOG " +
+                   "                    and d.TABLE_SCHEMA = a.TABLE_SCHEMA " +
+                   "                    and d.TABLE_NAME = a.TABLE_NAME " +
                    "       LEFT  JOIN #CSTYPES E ON E.SQL_TYPE = A.DATA_TYPE " +
-                   " WHERE A.TABLE_CATALOG = '{database}' AND A.TABLE_NAME = '{table}' " +
+                   " WHERE A.TABLE_CATALOG = '{database}' And A.TABLE_SCHEMA = '{schema}'  AND A.TABLE_NAME = '{table}' " +
                    " ORDER BY A.ORDINAL_POSITION";
         }
     }
