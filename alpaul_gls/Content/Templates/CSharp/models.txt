@@ -1,6 +1,8 @@
 using System;
 
-public class @classname
+namespace SIP.Models
 {
-@property}
-
+	public class @classname
+	{
+	@property}
+}
