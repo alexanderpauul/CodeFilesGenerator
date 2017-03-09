@@ -165,7 +165,7 @@ namespace Data
             using (SqlCommand cmd = new SqlCommand("@procedurename_GetAll", Connection.Cnn))
             {
                 cmd.CommandType = CommandType.StoredProcedure;
-                IIDataReader drResult = null;
+                IDataReader drResult = null;
                 List<Models.@classname> records = new List<Models.@classname>();
 
                 try

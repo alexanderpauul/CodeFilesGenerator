@@ -46,7 +46,7 @@ Public Class Persona
         End Using
     End Function
 
-    Public Shared Function Delete(value As Integer) As Integer
+    Public Shared Function Delete(value As String) As Integer
         Using cmd As New SqlCommand("@procedurename_Delete", Connection.Cnn)
             cmd.CommandType = CommandType.StoredProcedure
             cmd.Parameters.Add(New SqlParameter("@EstadoId", value))
@@ -68,10 +68,10 @@ Public Class Persona
         End Using
     End Function
 
-    Public Shared Function GetById(Id As String) As Models.Persona
+    Public Shared Function GetById(value As String) As Models.Persona
         Using cmd As New SqlCommand("@procedurename_GetById", Connection.Cnn)
             cmd.CommandType = CommandType.StoredProcedure
-            cmd.Parameters.Add(New SqlParameter("@fielId", Id))
+            cmd.Parameters.Add(New SqlParameter("@fielId", value))
             Dim drResultado As IDataReader = Nothing
             Dim registro As Models.@classname = New Models.@classname
 
@@ -97,10 +97,10 @@ Public Class Persona
         End Using
     End Function
 
-    Public Shared Function GetByGUID(Id As String) As Models.Persona
+    Public Shared Function GetByGUID(value As String) As Models.Persona
         Using cmd As New SqlCommand("@procedurename_GetByGUID", Connection.Cnn)
             cmd.CommandType = CommandType.StoredProcedure
-            cmd.Parameters.Add(New SqlParameter("@Identificador", Id))
+            cmd.Parameters.Add(New SqlParameter("@Identificador", value))
             Dim drResultado As IDataReader = Nothing
             Dim registro As Models.@classname = New Models.@classname
 

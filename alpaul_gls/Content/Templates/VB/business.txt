@@ -9,16 +9,16 @@ Public Class @classname
         Return Data.@classname.Edit(value)
     End Function
 
-    Public Shared Function Delete(value As Models.@classname) As Integer
+    Public Shared Function Delete(value As String) As Integer
         Return Data.@classname.Delete(value)
     End Function
 
-    Public Shared Function GetById(Id As String) As Models.Persona
-        Return Data.@classname.GetById(Id)
+    Public Shared Function GetById(value As String) As Models.Persona
+        Return Data.@classname.GetById(value)
     End Function
 
-    Public Shared Function GetByGUID(Id As String) As Models.Persona
-        Return Data.@classname.GetByGUID(Id)
+    Public Shared Function GetByGUID(value As String) As Models.Persona
+        Return Data.@classname.GetByGUID(value)
     End Function
 
     Public Shared Function GetAll() As List(Of Models.@classname)

@@ -4,34 +4,36 @@ namespace Business
 {
     public class @classname
     {
+	    private static Data.@classname obj = new Data.@classname();
+
         public static int Add(Models.@classname value)
         {
-            return Data.@classname.Add(tEstado);
+            return obj.Add(value);
         }
 
         public static int Edit(Models.@classname value)
         {
-            return Data.@classname.Edit(tEstado);
+            return obj.Edit(value);
         }
 
-        public static int Delete(Models.@classname value)
+        public static int Delete(stirng value)
         {
-            return Data.@classname.Remover(tEstado);
+            return obj.Delete(value);
         }
 
         public static Models.@classname GetById(string ID)
         {
-            return Data.@classname.GetById(ID);
+            return obj.GetById(ID);
         }
 
 		public static Models.@classname GetByGUID(string ID)
         {
-            return Data.@classname.GetByGUID(ID);
+            return obj.GetByGUID(ID);
         }
 
         public static List<Models.@classname> GetAll()
         {
-            return Data.@classname.GetAll();
+            return obj.GetAll();
         }
     }
 }

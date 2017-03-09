@@ -1,1 +1,1 @@
-﻿                registro.{fieldname} = ({type})(drResultado["{fieldname}"]);
+﻿                record.{fieldname} = ({type})(drResult["{fieldname}"]);
