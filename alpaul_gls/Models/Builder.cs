@@ -110,7 +110,7 @@ public class Builder
         foreach (Entities.Fields field in fields)
         {
             makerPropertyParameter.Append(linePropertyParameter.Replace("{fieldname}", field.COLUMN_NAME) + Environment.NewLine);
-            makerPropertyRecords.Append(linePropertyRecords.Replace("{fieldname}", field.COLUMN_NAME).Replace("{type}", field.CLASS_TYPE) + Environment.NewLine);
+            makerPropertyRecords.Append(linePropertyRecords.Replace("{fieldname}", field.COLUMN_NAME).Replace("{type}", (language == "VB" ? "Integer" : field.CLASS_TYPE)) + Environment.NewLine);
             procedurename = string.Format("{0}.{1}", field.TABLE_SCHEMA, field.TABLE_NAME);
         }
 

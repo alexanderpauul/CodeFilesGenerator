@@ -12,17 +12,3 @@ C:\Users\a.paulino1\Dropbox\gls\alpaul_gls\bin\Ionic.Zip.xml
 C:\Users\a.paulino1\Dropbox\gls\alpaul_gls\obj\Debug\alpaul_gls.csprojResolveAssemblyReference.cache
 C:\Users\a.paulino1\Dropbox\gls\alpaul_gls\obj\Debug\alpaul_gls.dll
 C:\Users\a.paulino1\Dropbox\gls\alpaul_gls\obj\Debug\alpaul_gls.pdb
-C:\Users\a.paulino1\Documents\GitHub\CodeFilesGenerator\alpaul_gls\bin\alpaul_gls.dll.config
-C:\Users\a.paulino1\Documents\GitHub\CodeFilesGenerator\alpaul_gls\bin\alpaul_gls.dll
-C:\Users\a.paulino1\Documents\GitHub\CodeFilesGenerator\alpaul_gls\bin\alpaul_gls.pdb
-C:\Users\a.paulino1\Documents\GitHub\CodeFilesGenerator\alpaul_gls\bin\Ionic.Zip.dll
-C:\Users\a.paulino1\Documents\GitHub\CodeFilesGenerator\alpaul_gls\bin\Microsoft.SqlServer.ConnectionInfo.dll
-C:\Users\a.paulino1\Documents\GitHub\CodeFilesGenerator\alpaul_gls\bin\Microsoft.SqlServer.Management.Sdk.Sfc.dll
-C:\Users\a.paulino1\Documents\GitHub\CodeFilesGenerator\alpaul_gls\bin\Microsoft.SqlServer.Smo.dll
-C:\Users\a.paulino1\Documents\GitHub\CodeFilesGenerator\alpaul_gls\bin\Microsoft.SqlServer.SqlEnum.dll
-C:\Users\a.paulino1\Documents\GitHub\CodeFilesGenerator\alpaul_gls\bin\Microsoft.SqlServer.Dmf.dll
-C:\Users\a.paulino1\Documents\GitHub\CodeFilesGenerator\alpaul_gls\bin\Microsoft.SqlServer.ServiceBrokerEnum.dll
-C:\Users\a.paulino1\Documents\GitHub\CodeFilesGenerator\alpaul_gls\bin\Ionic.Zip.xml
-C:\Users\a.paulino1\Documents\GitHub\CodeFilesGenerator\alpaul_gls\obj\Debug\alpaul_gls.csprojResolveAssemblyReference.cache
-C:\Users\a.paulino1\Documents\GitHub\CodeFilesGenerator\alpaul_gls\obj\Debug\alpaul_gls.dll
-C:\Users\a.paulino1\Documents\GitHub\CodeFilesGenerator\alpaul_gls\obj\Debug\alpaul_gls.pdb
