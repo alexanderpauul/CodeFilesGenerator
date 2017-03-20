@@ -1,6 +1,6 @@
 using System;
 
-namespace SIP.Models
+namespace Models
 {
 	public class @classname
 	{
