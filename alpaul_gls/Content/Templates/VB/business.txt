@@ -13,11 +13,11 @@ Public Class @classname
         Return Data.@classname.Delete(value)
     End Function
 
-    Public Shared Function GetById(value As String) As Models.Persona
+    Public Shared Function GetById(value As String) As Models.@classname
         Return Data.@classname.GetById(value)
     End Function
 
-    Public Shared Function GetByGUID(value As String) As Models.Persona
+    Public Shared Function GetByGUID(value As String) As Models.@classname
         Return Data.@classname.GetByGUID(value)
     End Function
 

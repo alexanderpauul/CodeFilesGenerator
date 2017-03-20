@@ -139,7 +139,10 @@ namespace alpaul_gls.SGI.generator
                     if (item.PROCESS)
                     {
                         GetListOfFieldsInTables(property.DATABASE, item.TABLE_NAME, item.TABLE_SCHEMA);
-                        Builder.ModelsBuilder(item.TABLE_NAME, _language, property, _logfields);
+                        Builder.ModelsBuilder(item.TABLE_NAME, 
+                                              _language, 
+                                              property, 
+                                              _logfields);
                     }
                 }
 
