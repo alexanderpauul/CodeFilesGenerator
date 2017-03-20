@@ -30,63 +30,56 @@ namespace alpaul_gls.SGI.generator
 
         protected void GetListOfFieldsInTables(string database, string table, string schema)
         {
-            //if (_logfields != null)
-            //{
-            //    records = _logfields;
-            //}
-            //else
-            //{
-                using (SqlConnection cnn = new SqlConnection(property.CONNECTION_STRING))
+            using (SqlConnection cnn = new SqlConnection(property.CONNECTION_STRING))
+            {
+                using (SqlCommand cmd = new SqlCommand(Utils.fieldscommand.Replace("{database}", database).Replace("{table}", table).Replace("{schema}", schema), cnn))
                 {
-                    using (SqlCommand cmd = new SqlCommand(Utils.fieldscommand.Replace("{database}", database).Replace("{table}", table).Replace("{schema}", schema), cnn))
+                    cmd.CommandType = CommandType.Text;
+                    cmd.CommandTimeout = 0;
+
+                    records = new List<Entities.Fields>();
+                    IDataReader drResult = null;
+
+                    try
                     {
-                        cmd.CommandType = CommandType.Text;
-                        cmd.CommandTimeout = 0;
+                        if (cnn.State == ConnectionState.Closed)
+                            cnn.Open();
 
-                        records = new List<Entities.Fields>();
-                        IDataReader drResult = null;
-
-                        try
+                        drResult = cmd.ExecuteReader();
+                        while (drResult.Read())
                         {
-                            if (cnn.State == ConnectionState.Closed)
-                                cnn.Open();
+                            Entities.Fields record = new Entities.Fields();
+                            record.TABLE_CATALOG = (string)(drResult["TABLE_CATALOG"].ToString());
+                            record.TABLE_NAME = (string)(drResult["TABLE_NAME"].ToString());
+                            record.TABLE_SCHEMA = (string)(drResult["TABLE_SCHEMA"].ToString());
+                            record.ORDINAL_POSITION = (int)(drResult["ORDINAL_POSITION"]);
+                            record.COLUMN_NAME = (string)(drResult["COLUMN_NAME"].ToString());
+                            record.DATA_TYPE = (string)(drResult["DATA_TYPE"].ToString());
+                            record.IS_NULLABLE = (string)(drResult["IS_NULLABLE"].ToString());
+                            record.CHARACTER_MAXIMUM_LENGTH = (int)(drResult["CHARACTER_MAXIMUM_LENGTH"]);
+                            record.CONSTRAINT_TYPE = (string)(drResult["CONSTRAINT_TYPE"].ToString());
+                            record.KEY_CODE = (int)(drResult["KEY_CODE"]);
+                            record.CONSTRAINT_NAME = (string)(drResult["CONSTRAINT_NAME"].ToString());
+                            record.COLUMN_DEFAULT = (string)(drResult["COLUMN_DEFAULT"].ToString());
+                            record.TABLE_NAME_RELATIONSHIP = (string)(drResult["TABLE_NAME_RELATIONSHIP"].ToString());
+                            record.CLASS_TYPE = (string)(drResult["CLASS_TYPE"].ToString());
+                            records.Add(record);
+                        }
 
-                            drResult = cmd.ExecuteReader();
-                            while (drResult.Read())
-                            {
-                                Entities.Fields record = new Entities.Fields();
-                                record.TABLE_CATALOG = (string)(drResult["TABLE_CATALOG"].ToString());
-                                record.TABLE_NAME = (string)(drResult["TABLE_NAME"].ToString());
-                                record.TABLE_SCHEMA = (string)(drResult["TABLE_SCHEMA"].ToString());
-                                record.ORDINAL_POSITION = (int)(drResult["ORDINAL_POSITION"]);
-                                record.COLUMN_NAME = (string)(drResult["COLUMN_NAME"].ToString());
-                                record.DATA_TYPE = (string)(drResult["DATA_TYPE"].ToString());
-                                record.IS_NULLABLE = (string)(drResult["IS_NULLABLE"].ToString());
-                                record.CHARACTER_MAXIMUM_LENGTH = (int)(drResult["CHARACTER_MAXIMUM_LENGTH"]);
-                                record.CONSTRAINT_TYPE = (string)(drResult["CONSTRAINT_TYPE"].ToString());
-                                record.KEY_CODE = (int)(drResult["KEY_CODE"]);
-                                record.CONSTRAINT_NAME = (string)(drResult["CONSTRAINT_NAME"].ToString());
-                                record.COLUMN_DEFAULT = (string)(drResult["COLUMN_DEFAULT"].ToString());
-                                record.TABLE_NAME_RELATIONSHIP = (string)(drResult["TABLE_NAME_RELATIONSHIP"].ToString());
-                                record.CLASS_TYPE = (string)(drResult["CLASS_TYPE"].ToString());
-                                records.Add(record);
-                            }
-
-                            Session["fields"] = records;
-                        }
-                        catch (SqlException exception)
-                        {
-                            records = null;
-                            string Error = exception.Message;
-                        }
-                        finally
-                        {
-                            if (cnn.State == ConnectionState.Open)
-                                cnn.Close();
-                        }
+                        Session["fields"] = records;
+                    }
+                    catch (SqlException exception)
+                    {
+                        records = null;
+                        string Error = exception.Message;
+                    }
+                    finally
+                    {
+                        if (cnn.State == ConnectionState.Open)
+                            cnn.Close();
                     }
                 }
-            //}
+            }
         }
 
         private bool Validation()
@@ -139,9 +132,9 @@ namespace alpaul_gls.SGI.generator
                     if (item.PROCESS)
                     {
                         GetListOfFieldsInTables(property.DATABASE, item.TABLE_NAME, item.TABLE_SCHEMA);
-                        Builder.ModelsBuilder(item.TABLE_NAME, 
-                                              _language, 
-                                              property, 
+                        Builder.ModelsBuilder(item.TABLE_NAME,
+                                              _language,
+                                              property,
                                               _logfields);
                     }
                 }
@@ -171,9 +164,12 @@ namespace alpaul_gls.SGI.generator
             {
                 foreach (Entities.Table item in _logtables)
                 {
-                    Builder.BusinessBuilder(item.TABLE_NAME,
+                    if (item.PROCESS)
+                    {
+                        Builder.BusinessBuilder(item.TABLE_NAME,
                                             _language,
                                             property.DOWNLOABLE_NAME);
+                    }
                 }
 
                 Excecute = true;
