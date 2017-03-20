@@ -30,12 +30,12 @@ namespace alpaul_gls.SGI.generator
 
         protected void GetListOfFieldsInTables(string database, string table, string schema)
         {
-            if (_logfields != null)
-            {
-                records = _logfields;
-            }
-            else
-            {
+            //if (_logfields != null)
+            //{
+            //    records = _logfields;
+            //}
+            //else
+            //{
                 using (SqlConnection cnn = new SqlConnection(property.CONNECTION_STRING))
                 {
                     using (SqlCommand cmd = new SqlCommand(Utils.fieldscommand.Replace("{database}", database).Replace("{table}", table).Replace("{schema}", schema), cnn))
@@ -86,7 +86,7 @@ namespace alpaul_gls.SGI.generator
                         }
                     }
                 }
-            }
+            //}
         }
 
         private bool Validation()
