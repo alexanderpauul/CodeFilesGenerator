@@ -49,7 +49,7 @@ Public Class @classname
     Public Shared Function Delete(value As String) As Integer
         Using cmd As New SqlCommand("@procedurename_Delete", Connection.Cnn)
             cmd.CommandType = CommandType.StoredProcedure
-            cmd.Parameters.Add(New SqlParameter("@EstadoId", value))
+            cmd.Parameters.Add(New SqlParameter("@value", value))
 
             Try
                 If Connection.Cnn.State = ConnectionState.Closed Then
@@ -71,7 +71,7 @@ Public Class @classname
     Public Shared Function GetById(value As String) As Models.@classname
         Using cmd As New SqlCommand("@procedurename_GetById", Connection.Cnn)
             cmd.CommandType = CommandType.StoredProcedure
-            cmd.Parameters.Add(New SqlParameter("@fielId", value))
+            cmd.Parameters.Add(New SqlParameter("@value", value))
             Dim drResultado As IDataReader = Nothing
             Dim registro As Models.@classname = New Models.@classname
 
@@ -100,7 +100,7 @@ Public Class @classname
     Public Shared Function GetByGUID(value As String) As Models.@classname
         Using cmd As New SqlCommand("@procedurename_GetByGUID", Connection.Cnn)
             cmd.CommandType = CommandType.StoredProcedure
-            cmd.Parameters.Add(New SqlParameter("@Identificador", value))
+            cmd.Parameters.Add(New SqlParameter("@value", value))
             Dim drResultado As IDataReader = Nothing
             Dim registro As Models.@classname = New Models.@classname
 

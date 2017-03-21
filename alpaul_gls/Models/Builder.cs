@@ -152,7 +152,7 @@ public class Builder
         }
 
         StreamWriter sw = new StreamWriter(file, true, Encoding.ASCII);
-        sw.Write(lineTemplate.Replace("@classname", table));
+        sw.Write(lineTemplate.Replace("@classname", Utils.singular(table)));
         sw.Close();
     }
 

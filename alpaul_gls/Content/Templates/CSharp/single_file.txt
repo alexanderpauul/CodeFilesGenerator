@@ -82,7 +82,7 @@ namespace @database
 
             SqlConnection connection = new SqlConnection("ConnectionString");
             SqlCommand cmd = new SqlCommand("@procedurename_Delete", connection);
-            cmd.Parameters.Add(new SqlParameter("@fielId", value));
+            cmd.Parameters.Add(new SqlParameter("@value", value));
 			cmd.CommandType = CommandType.StoredProcedure;
             cmd.CommandTimeout = 0;            
 
@@ -114,7 +114,7 @@ namespace @database
 
             SqlConnection connection = new SqlConnection("ConnectionString");
             SqlCommand cmd = new SqlCommand("@procedurename_GetById", connection);
-            cmd.Parameters.Add(new SqlParameter("@fielId", value));
+            cmd.Parameters.Add(new SqlParameter("@value", value));
 			cmd.CommandType = CommandType.StoredProcedure;
             cmd.CommandTimeout = 0;    
 
@@ -154,7 +154,7 @@ namespace @database
 
             SqlConnection connection = new SqlConnection("ConnectionString");
             SqlCommand cmd = new SqlCommand("@procedurename_GetByGUID", connection);
-            cmd.Parameters.Add(new SqlParameter("@fielId", value));
+            cmd.Parameters.Add(new SqlParameter("@value", value));
 			cmd.CommandType = CommandType.StoredProcedure;
             cmd.CommandTimeout = 0;    
 
