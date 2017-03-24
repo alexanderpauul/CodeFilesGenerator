@@ -1,4 +1,5 @@
-﻿using System;
+﻿using alpaul_gls.Models;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
@@ -113,7 +114,7 @@ namespace alpaul_gls.SGI.generator
                     if (item.PROCESS)
                     {
                         GetListOfFieldsInTables(property.DATABASE, item.TABLE_NAME, item.TABLE_SCHEMA);
-                        Builder.SqlFileBuilder(item.TABLE_CATALOG,
+                        Builder_sql_procedure_separate_file.SqlFileBuilder(item.TABLE_CATALOG,
                                                item.TABLE_SCHEMA,
                                                item.TABLE_NAME,
                                                _language,
@@ -132,7 +133,7 @@ namespace alpaul_gls.SGI.generator
                     if (item.PROCESS)
                     {
                         GetListOfFieldsInTables(property.DATABASE, item.TABLE_NAME, item.TABLE_SCHEMA);
-                        Builder.ModelsBuilder(item.TABLE_NAME,
+                        Builder_model_file.ModelsBuilder(item.TABLE_NAME,
                                               _language,
                                               property,
                                               _logfields);
@@ -149,7 +150,7 @@ namespace alpaul_gls.SGI.generator
                     if (item.PROCESS)
                     {
                         GetListOfFieldsInTables(property.DATABASE, item.TABLE_NAME, item.TABLE_SCHEMA);
-                        Builder.DataBuilder("UASDF",
+                        Builder_data_file.DataBuilder("UASDF",
                                             item.TABLE_NAME,
                                             _language,
                                             property,
@@ -166,7 +167,7 @@ namespace alpaul_gls.SGI.generator
                 {
                     if (item.PROCESS)
                     {
-                        Builder.BusinessBuilder(item.TABLE_NAME,
+                        Builder_business_file.BusinessBuilder(item.TABLE_NAME,
                                             _language,
                                             property.DOWNLOABLE_NAME);
                     }
@@ -182,7 +183,7 @@ namespace alpaul_gls.SGI.generator
                     if (item.PROCESS)
                     {
                         GetListOfFieldsInTables(property.DATABASE, item.TABLE_NAME, item.TABLE_SCHEMA);
-                        Builder.SingleFileBuilder("UASDF",
+                        Builder_single_code_file.SingleFileBuilder("UASDF",
                                                   item.TABLE_NAME,
                                                   _language,
                                                   property,

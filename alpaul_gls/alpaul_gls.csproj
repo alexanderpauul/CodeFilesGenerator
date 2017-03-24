@@ -425,7 +425,12 @@
     <Compile Include="master\base.master.designer.cs">
       <DependentUpon>base.master</DependentUpon>
     </Compile>
-    <Compile Include="Models\Builder.cs" />
+    <Compile Include="Models\Builderr_sql_procedure_single_file.cs" />
+    <Compile Include="Models\Builder_business_file.cs" />
+    <Compile Include="Models\Builder_data_file.cs" />
+    <Compile Include="Models\Builder_model_file.cs" />
+    <Compile Include="Models\Builder_single_code_file.cs" />
+    <Compile Include="Models\Builder_sql_procedure_separate_file.cs" />
     <Compile Include="Models\Entities.cs" />
     <Compile Include="Models\Paths.cs" />
     <Compile Include="Models\Utils.cs" />
