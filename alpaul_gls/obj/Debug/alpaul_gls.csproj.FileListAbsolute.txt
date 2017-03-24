@@ -25,4 +25,3 @@ C:\Users\a.paulino1\Documents\GitHub\CodeFilesGenerator\alpaul_gls\bin\Microsoft
 C:\Users\a.paulino1\Documents\GitHub\CodeFilesGenerator\alpaul_gls\bin\Ionic.Zip.xml
 C:\Users\a.paulino1\Documents\GitHub\CodeFilesGenerator\alpaul_gls\obj\Debug\alpaul_gls.dll
 C:\Users\a.paulino1\Documents\GitHub\CodeFilesGenerator\alpaul_gls\obj\Debug\alpaul_gls.pdb
-C:\Users\a.paulino1\Documents\GitHub\CodeFilesGenerator\alpaul_gls\obj\Debug\alpaul_gls.csprojResolveAssemblyReference.cache
