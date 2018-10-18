@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using Microsoft.SqlServer.Management.Smo;
 using Microsoft.SqlServer.Management.Common;
+using System.Collections.Generic;
 
 namespace alpaul_gls.SGI.generator
 {
@@ -26,9 +27,12 @@ namespace alpaul_gls.SGI.generator
         // Methods        
         protected void GetListOfServersName()
         {
-            instance = SmoApplication.EnumAvailableSqlServers(false);
+            string CurrentMachineName = Environment.MachineName;
             ddlServer.Items.Add(new ListItem("-- Not Server Selected --", string.Empty));
             ddlServer.AppendDataBoundItems = true;
+
+            instance = SmoApplication.EnumAvailableSqlServers(true);      
+            ddlServer.DataBind();
 
             if (instance.Rows.Count == 0)
             {

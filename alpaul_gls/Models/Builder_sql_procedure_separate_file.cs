@@ -193,10 +193,10 @@ namespace alpaul_gls.Models
             // Adding SQL files Edit
             StreamWriter swEdit = new StreamWriter(sqleditfile, true, Encoding.ASCII);
             swEdit.Write(lineSqlEdit.Replace("{database}", database)
-                                   .Replace("{table}", string.Format("{0}.{1}", schema, table))
-                                   .Replace("{fields}", SqlEditParameters)
-                                   .Replace("{fieldId}", string.Format("{0} = @{0}", FielId))
-                                   .Replace("{ParametersType}", SqlEditParametersType));
+                                    .Replace("{table}", string.Format("{0}.{1}", schema, table))
+                                    .Replace("{fields}", SqlEditParameters)
+                                    .Replace("{fieldId}", string.Format("{0} = @{0}", FielId))
+                                    .Replace("{ParametersType}", SqlEditParametersType));
             swEdit.Close();
         }
     }
