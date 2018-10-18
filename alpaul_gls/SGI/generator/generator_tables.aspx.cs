@@ -55,7 +55,8 @@ namespace alpaul_gls.SGI.generator
                             records.Add(record);
                         }
 
-                        Session["tables"] = records;
+                        HttpContext.Current.Session["tables"] = null;
+                        HttpContext.Current.Session.Add("tables", records);
                     }
                     catch (SqlException exception)
                     {
@@ -80,6 +81,7 @@ namespace alpaul_gls.SGI.generator
                 rpRegistros.DataBind();
             }
         }
+
         private bool TableValidation()
         {
             bool Ejecutar = false;
@@ -130,7 +132,7 @@ namespace alpaul_gls.SGI.generator
         {
             if (TableValidation())
             {
-                Session["tables"] = _logtables;
+                HttpContext.Current.Session["tables"] = _logtables;
                 Response.Redirect("/Generator/Process");
             }
             else

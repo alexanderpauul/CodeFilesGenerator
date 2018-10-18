@@ -142,6 +142,7 @@ namespace alpaul_gls.SGI.generator
             obj.AUTHENTICATION = _authentication;
             obj.DOWNLOABLE_NAME = _Downloable_Name;
 
+            Session["Properties"] = null;
             Session["Properties"] = obj;
         }
 
@@ -159,7 +160,6 @@ namespace alpaul_gls.SGI.generator
                 GetDataBasesInServer();
                 ddlDataBase.SelectedValue = property.DATABASE;
                 lblConecction.Text = property.CONNECTION_STRING;
-
             }
         }
 

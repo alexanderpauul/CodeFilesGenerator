@@ -107,6 +107,15 @@ namespace alpaul_gls.SGI.generator
         protected void btnContinue_Click(object sender, EventArgs e)
         {
             bool Excecute = false;
+            if (_logtables == null)
+            {
+                CustomValidator msgError = new CustomValidator();
+                msgError.IsValid = false;
+                msgError.ErrorMessage = "System could not found tables selected.";
+                Page.Validators.Add(msgError);
+                return;
+            }
+
             if (_procedure == true)
             {
                 foreach (Entities.Table item in _logtables)
