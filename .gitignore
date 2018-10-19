@@ -390,5 +390,7 @@ ASALocalRun/
 # Local History for Visual Studio
 .localhistory/
 
+# Autogenerate output folder
+[Dd]ownloadable/
 
 # End of https://www.gitignore.io/api/macos,windows,visualstudio
