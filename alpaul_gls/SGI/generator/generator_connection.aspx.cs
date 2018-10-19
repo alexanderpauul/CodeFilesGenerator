@@ -1,12 +1,11 @@
-﻿using System;
+﻿using Microsoft.SqlServer.Management.Common;
+using Microsoft.SqlServer.Management.Smo;
+using System;
 using System.Data;
 using System.Data.SqlClient;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using Microsoft.SqlServer.Management.Smo;
-using Microsoft.SqlServer.Management.Common;
-using System.Collections.Generic;
 
 namespace alpaul_gls.SGI.generator
 {
@@ -172,7 +171,7 @@ namespace alpaul_gls.SGI.generator
             }
         }
 
-        protected void ddlServer_SelectedIndexChanged(object sender, EventArgs e)
+        protected void DdlServer_SelectedIndexChanged(object sender, EventArgs e)
         {
             ResetErrorComponents();
             GetDataBasesInServer();
@@ -180,7 +179,7 @@ namespace alpaul_gls.SGI.generator
             SessionPropertyValue();
         }
 
-        protected void rAuthentication_CheckedChanged(object sender, EventArgs e)
+        protected void RbAuthentication_CheckedChanged(object sender, EventArgs e)
         {
             txtUserName.Enabled = rdbSerAuthentication.Checked ? true : false;
             txtPassword.Enabled = rdbSerAuthentication.Checked ? true : false;
@@ -197,7 +196,7 @@ namespace alpaul_gls.SGI.generator
             AuthenticatioCertify();
         }
 
-        protected void ddlDataBase_SelectedIndexChanged(object sender, EventArgs e)
+        protected void DdlDataBase_SelectedIndexChanged(object sender, EventArgs e)
         {
             btnTestConecction.Text = "Test Connection";
             btnTestConecction.CssClass = "button hollow";
@@ -205,7 +204,7 @@ namespace alpaul_gls.SGI.generator
             SessionPropertyValue();
         }
 
-        protected void btnTestConecction_Click(object sender, EventArgs e)
+        protected void BtnTestConecction_Click(object sender, EventArgs e)
         {
             string Error = string.Empty;
             using (SqlConnection cnn = new SqlConnection(_conecction_string))
@@ -227,7 +226,7 @@ namespace alpaul_gls.SGI.generator
             }
         }
 
-        protected void btnContinue_Click(object sender, EventArgs e)
+        protected void BtnContinue_Click(object sender, EventArgs e)
         {
             SessionPropertyValue();
             Response.Redirect("/Generator/Tables");

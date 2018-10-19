@@ -3,8 +3,6 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
-using System.IO;
-using System.Text;
 using System.Web;
 using System.Web.UI.WebControls;
 
@@ -16,7 +14,7 @@ namespace alpaul_gls.SGI.generator
         List<Entities.Fields> records;
 
         // Objects in memory
-        public Entities.Properties property { get { return (Entities.Properties)HttpContext.Current.Session["Properties"]; } }
+        public Entities.Properties _property { get { return (Entities.Properties)HttpContext.Current.Session["Properties"]; } }
         public List<Entities.Fields> _logfields { get { return (List<Entities.Fields>)HttpContext.Current.Session["fields"]; } }
         public List<Entities.Table> _logtables { get { return (List<Entities.Table>)HttpContext.Current.Session["tables"]; } }
 
@@ -28,10 +26,9 @@ namespace alpaul_gls.SGI.generator
         private bool _singlefile { get { return chksingelFile.Checked; } }
         private string _language { get { return ddlLanguage.SelectedValue; } }
 
-
         protected void GetListOfFieldsInTables(string database, string table, string schema)
         {
-            using (SqlConnection cnn = new SqlConnection(property.CONNECTION_STRING))
+            using (SqlConnection cnn = new SqlConnection(_property.CONNECTION_STRING))
             {
                 using (SqlCommand cmd = new SqlCommand(Utils.fieldscommand.Replace("{database}", database).Replace("{table}", table).Replace("{schema}", schema), cnn))
                 {
@@ -104,7 +101,7 @@ namespace alpaul_gls.SGI.generator
             }
         }
 
-        protected void btnContinue_Click(object sender, EventArgs e)
+        protected void BtnContinue_Click(object sender, EventArgs e)
         {
             bool Excecute = false;
             if (_logtables == null)
@@ -122,12 +119,12 @@ namespace alpaul_gls.SGI.generator
                 {
                     if (item.PROCESS)
                     {
-                        GetListOfFieldsInTables(property.DATABASE, item.TABLE_NAME, item.TABLE_SCHEMA);
+                        GetListOfFieldsInTables(_property.DATABASE, item.TABLE_NAME, item.TABLE_SCHEMA);
                         Builder_sql_procedure_separate_file.SqlFileBuilder(item.TABLE_CATALOG,
                                                item.TABLE_SCHEMA,
                                                item.TABLE_NAME,
                                                _language,
-                                               property,
+                                               _property,
                                                _logfields);
                     }
                 }
@@ -141,10 +138,10 @@ namespace alpaul_gls.SGI.generator
                 {
                     if (item.PROCESS)
                     {
-                        GetListOfFieldsInTables(property.DATABASE, item.TABLE_NAME, item.TABLE_SCHEMA);
+                        GetListOfFieldsInTables(_property.DATABASE, item.TABLE_NAME, item.TABLE_SCHEMA);
                         Builder_model_file.ModelsBuilder(item.TABLE_NAME,
                                               _language,
-                                              property,
+                                              _property,
                                               _logfields);
                     }
                 }
@@ -158,11 +155,11 @@ namespace alpaul_gls.SGI.generator
                 {
                     if (item.PROCESS)
                     {
-                        GetListOfFieldsInTables(property.DATABASE, item.TABLE_NAME, item.TABLE_SCHEMA);
+                        GetListOfFieldsInTables(_property.DATABASE, item.TABLE_NAME, item.TABLE_SCHEMA);
                         Builder_data_file.DataBuilder("UASDF",
                                             item.TABLE_NAME,
                                             _language,
-                                            property,
+                                            _property,
                                             _logfields);
                     }
                 }
@@ -178,7 +175,7 @@ namespace alpaul_gls.SGI.generator
                     {
                         Builder_business_file.BusinessBuilder(item.TABLE_NAME,
                                             _language,
-                                            property.DOWNLOABLE_NAME);
+                                            _property.DOWNLOABLE_NAME);
                     }
                 }
 
@@ -191,11 +188,11 @@ namespace alpaul_gls.SGI.generator
                 {
                     if (item.PROCESS)
                     {
-                        GetListOfFieldsInTables(property.DATABASE, item.TABLE_NAME, item.TABLE_SCHEMA);
+                        GetListOfFieldsInTables(_property.DATABASE, item.TABLE_NAME, item.TABLE_SCHEMA);
                         Builder_single_code_file.SingleFileBuilder("UASDF",
                                                   item.TABLE_NAME,
                                                   _language,
-                                                  property,
+                                                  _property,
                                                   _logfields);
                     }
                 }

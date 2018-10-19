@@ -92,9 +92,9 @@
             <div class="alert-box info radius">
                 <p class="paragraph">In this step choose those process that you want to make.</p>
                 <ul class="details">
-                    <li>SERVER: <strong><%= property.SERVER_NAME %></strong></li>
-                    <li>DATA BASE: <strong><%= property.DATABASE %></strong></li>
-                    <li>CONECCTION STRING: <strong><%= property.CONNECTION_STRING %></strong></li>
+                    <li>SERVER: <strong><%= _property.SERVER_NAME %></strong></li>
+                    <li>DATA BASE: <strong><%= _property.DATABASE %></strong></li>
+                    <li>CONECCTION STRING: <strong><%= _property.CONNECTION_STRING %></strong></li>
                 </ul>
             </div>
         </div>
@@ -187,7 +187,7 @@
                 <%-- Button --%>
                 <div class="medium-12">
                     <a href="<%: Page.GetRouteUrl("Generator-Tables", null )  %>" class="button alert hollow">Back</a>
-                    <asp:Button runat="server" ID="btnContinue" CssClass="button" Text="Continue" OnClick="btnContinue_Click" />
+                    <asp:Button runat="server" ID="btnContinue" CssClass="button" Text="Continue" OnClick="BtnContinue_Click" />
                 </div>
 
             </fieldset>

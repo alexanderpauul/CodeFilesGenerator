@@ -70,16 +70,16 @@
             <div class="alert-box info radius">
                 <p class="paragraph">Process Completed, please click Download button to get your Package.</p>
                 <ul class="details">
-                    <li>SERVER: <strong><%= property.SERVER_NAME %></strong></li>
-                    <li>DATA BASE: <strong><%= property.DATABASE %></strong></li>
-                    <li>CONECCTION STRING: <strong><%= property.CONNECTION_STRING %></strong></li>
+                    <li>SERVER: <strong><%= _property.SERVER_NAME %></strong></li>
+                    <li>DATA BASE: <strong><%= _property.DATABASE %></strong></li>
+                    <li>CONECCTION STRING: <strong><%= _property.CONNECTION_STRING %></strong></li>
                 </ul>
 
                 <br />
                 <div class="row">
                     <div class="medium-12 columns">
                         <a href="<%: Page.GetRouteUrl("Generator-Process", null )  %>" class="button alert hollow">Back</a>              
-                        <asp:Button runat="server" ID="btnDownload" Text="Download" OnClick="btnDownload_Click" CssClass="button success" />
+                        <asp:Button runat="server" ID="btnDownload" Text="Download" OnClick="BtnDownload_Click" CssClass="button success" />
                     </div>
                 </div>
             </div>

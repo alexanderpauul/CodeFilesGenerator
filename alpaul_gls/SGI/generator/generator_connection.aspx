@@ -88,7 +88,7 @@
                                 ID="ddlServer"
                                 TabIndex="0"
                                 AutoPostBack="true"
-                                OnSelectedIndexChanged="ddlServer_SelectedIndexChanged" />
+                                OnSelectedIndexChanged="DdlServer_SelectedIndexChanged" />
                             <asp:RequiredFieldValidator
                                 ID="rfvServer"
                                 runat="server"
@@ -116,7 +116,7 @@
                                             TabIndex="1"
                                             GroupName="Authentication"
                                             Checked="true"
-                                            OnCheckedChanged="rAuthentication_CheckedChanged"
+                                            OnCheckedChanged="RbAuthentication_CheckedChanged"
                                             AutoPostBack="True" />
                                         <label
                                             for="rdbWinAuthentication"
@@ -130,7 +130,7 @@
                                             ID="rdbSerAuthentication"
                                             TabIndex="2"
                                             GroupName="Authentication"
-                                            OnCheckedChanged="rAuthentication_CheckedChanged"
+                                            OnCheckedChanged="RbAuthentication_CheckedChanged"
                                             AutoPostBack="True" />
                                         <label
                                             for="rdbSerAuthentication"
@@ -196,7 +196,7 @@
                                         runat="server"
                                         ID="ddlDataBase"
                                         AutoPostBack="true"
-                                        OnSelectedIndexChanged="ddlDataBase_SelectedIndexChanged" />
+                                        OnSelectedIndexChanged="DdlDataBase_SelectedIndexChanged" />
                                     <asp:RequiredFieldValidator
                                         ID="rfvDataBase"
                                         runat="server"
@@ -212,8 +212,8 @@
 
                     <%-- Button --%>
                     <div class="medium-12">
-                        <asp:Button runat="server" ID="btnTestConecction" CssClass="button hollow" Text="Test Connection" OnClick="btnTestConecction_Click" />
-                        <asp:Button runat="server" ID="btnContinue" CssClass="button" Text="Continue" OnClick="btnContinue_Click" />
+                        <asp:Button runat="server" ID="btnTestConecction" CssClass="button hollow" Text="Test Connection" OnClick="BtnTestConecction_Click" />
+                        <asp:Button runat="server" ID="btnContinue" CssClass="button" Text="Continue" OnClick="BtnContinue_Click" />
                     </div>
                 </div>
 

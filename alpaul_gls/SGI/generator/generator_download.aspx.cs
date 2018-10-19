@@ -11,14 +11,14 @@ namespace alpaul_gls.SGI.generator
 {
     public partial class generator_download : System.Web.UI.Page
     {
-        public Entities.Properties property { get { return (Entities.Properties)HttpContext.Current.Session["Properties"]; } }
+        public Entities.Properties _property { get { return (Entities.Properties)HttpContext.Current.Session["Properties"]; } }
 
-        protected void btnDownload_Click(object sender, EventArgs e)
+        protected void BtnDownload_Click(object sender, EventArgs e)
         {
-            string directory = Server.MapPath(string.Format("/Content/Downloadable/{0}", property.DOWNLOABLE_NAME));
+            string directory = Server.MapPath(string.Format("/Content/Downloadable/{0}", _property.DOWNLOABLE_NAME));
             DirectoryInfo files = new DirectoryInfo(directory);
 
-            Response.AddHeader("Content-Disposition", "attachment; filename=" + property.DOWNLOABLE_NAME  + ".zip");
+            Response.AddHeader("Content-Disposition", "attachment; filename=" + _property.DOWNLOABLE_NAME  + ".zip");
             Response.ContentType = "application/zip";
 
             using (ZipFile zip = new ZipFile())
@@ -26,7 +26,6 @@ namespace alpaul_gls.SGI.generator
                 zip.AddDirectory(directory);
                 zip.Save(Response.OutputStream);
             }
-
         }
     }
 }

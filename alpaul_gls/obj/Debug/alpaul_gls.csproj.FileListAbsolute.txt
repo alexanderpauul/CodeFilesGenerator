@@ -17,8 +17,8 @@ C:\Users\a.paulino1\Documents\GitHub\CodeFilesGenerator\alpaul_gls\bin\alpaul_gl
 C:\Users\a.paulino1\Documents\GitHub\CodeFilesGenerator\alpaul_gls\bin\alpaul_gls.pdb
 C:\Users\a.paulino1\Documents\GitHub\CodeFilesGenerator\alpaul_gls\bin\Ionic.Zip.dll
 C:\Users\a.paulino1\Documents\GitHub\CodeFilesGenerator\alpaul_gls\bin\Ionic.Zip.xml
-C:\Users\a.paulino1\Documents\GitHub\CodeFilesGenerator\alpaul_gls\obj\Debug\alpaul_gls.dll
-C:\Users\a.paulino1\Documents\GitHub\CodeFilesGenerator\alpaul_gls\obj\Debug\alpaul_gls.pdb
 C:\Users\a.paulino1\Documents\GitHub\CodeFilesGenerator\alpaul_gls\obj\Debug\alpaul_gls.csprojResolveAssemblyReference.cache
 C:\Users\a.paulino1\Documents\GitHub\CodeFilesGenerator\alpaul_gls\obj\Debug\alpaul_gls.csproj.CoreCompileInputs.cache
 C:\Users\a.paulino1\Documents\GitHub\CodeFilesGenerator\alpaul_gls\obj\Debug\alpaul_gls.csproj.CopyComplete
+C:\Users\a.paulino1\Documents\GitHub\CodeFilesGenerator\alpaul_gls\obj\Debug\alpaul_gls.dll
+C:\Users\a.paulino1\Documents\GitHub\CodeFilesGenerator\alpaul_gls\obj\Debug\alpaul_gls.pdb

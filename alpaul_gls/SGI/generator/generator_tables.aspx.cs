@@ -14,7 +14,7 @@ namespace alpaul_gls.SGI.generator
         List<Entities.Table> records;
 
         // Properties
-        public Entities.Properties property { get { return (Entities.Properties)HttpContext.Current.Session["Properties"]; } }
+        public Entities.Properties _property { get { return (Entities.Properties)HttpContext.Current.Session["Properties"]; } }
         public string _command { get { return "USE {dbname} SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE' ORDER BY TABLE_SCHEMA, TABLE_NAME"; } }
         public List<Entities.Table> _logtables { get { return (List<Entities.Table>)HttpContext.Current.Session["tables"]; } }
 
@@ -28,9 +28,9 @@ namespace alpaul_gls.SGI.generator
             //else
             //{
 
-            using (SqlConnection cnn = new SqlConnection(property.CONNECTION_STRING))
+            using (SqlConnection cnn = new SqlConnection(_property.CONNECTION_STRING))
             {
-                using (SqlCommand cmd = new SqlCommand(_command.Replace("{dbname}", property.DATABASE), cnn))
+                using (SqlCommand cmd = new SqlCommand(_command.Replace("{dbname}", _property.DATABASE), cnn))
                 {
                     cmd.CommandType = CommandType.Text;
                     cmd.CommandTimeout = 0;
@@ -105,7 +105,7 @@ namespace alpaul_gls.SGI.generator
             }
         }
 
-        protected void chk_childs_CheckedChanged(object sender, EventArgs e)
+        protected void Chk_childs_CheckedChanged(object sender, EventArgs e)
         {
             CheckBox ctrl = ((CheckBox)sender);
             (from x in _logtables
@@ -116,7 +116,7 @@ namespace alpaul_gls.SGI.generator
             { chkfather.Checked = false; }
         }
 
-        protected void chk_father_CheckedChanged(object sender, EventArgs e)
+        protected void Chk_father_CheckedChanged(object sender, EventArgs e)
         {
             CheckBox ctrl = ((CheckBox)sender);
             (from x in _logtables select x).ToList().ForEach(x => x.PROCESS = ctrl.Checked);
@@ -128,7 +128,7 @@ namespace alpaul_gls.SGI.generator
             }
         }
 
-        protected void btnContinue_Click(object sender, EventArgs e)
+        protected void BtnContinue_Click(object sender, EventArgs e)
         {
             if (TableValidation())
             {

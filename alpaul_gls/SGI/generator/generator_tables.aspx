@@ -97,9 +97,9 @@
             <div class="alert-box info radius">
                 <p class="paragraph">In this step choose those tables that you want to process.</p>
                 <ul class="details">
-                    <li>SERVER: <strong><%= property.SERVER_NAME %></strong></li>
-                    <li>DATA BASE: <strong><%= property.DATABASE %></strong></li>
-                    <li>CONECCTION STRING: <strong><%= property.CONNECTION_STRING %></strong></li>
+                    <li>SERVER: <strong><%= _property.SERVER_NAME %></strong></li>
+                    <li>DATA BASE: <strong><%= _property.DATABASE %></strong></li>
+                    <li>CONECCTION STRING: <strong><%= _property.CONNECTION_STRING %></strong></li>
                 </ul>
             </div>
         </div>
@@ -116,7 +116,7 @@
         <%-- Button --%>
         <div class="medium-12 columns">
             <a href="<%: Page.GetRouteUrl("Generator-Connection", null )  %>" class="button alert hollow">Back</a>
-            <asp:Button runat="server" ID="btnContinueTop" CssClass="button" Text="Continue" OnClick="btnContinue_Click" />
+            <asp:Button runat="server" ID="btnContinueTop" CssClass="button" Text="Continue" OnClick="BtnContinue_Click" />
         </div>
 
         <asp:ScriptManager ID="sm" runat="server" />
@@ -132,7 +132,7 @@
                                         ID="chkfather"
                                         CssClass="chk"
                                         AutoPostBack="true"
-                                        OnCheckedChanged="chk_father_CheckedChanged" /></th>
+                                        OnCheckedChanged="Chk_father_CheckedChanged" /></th>
                                 <th>NAME</th>
                                 <th class="data">SCHEMA NAME</th>
                                 <th class="data">TABLE NAME</th>
@@ -150,7 +150,7 @@
                                                 AutoPostBack="true"
                                                 Checked='<%# Eval("PROCESS") %>'
                                                 ValidationGroup='<%# Eval("TABLE_NAME") %>'
-                                                OnCheckedChanged="chk_childs_CheckedChanged" /></td>
+                                                OnCheckedChanged="Chk_childs_CheckedChanged" /></td>
                                         <td><%#  Eval("NAME")%></script></td>
                                         <td class="data"><%# Eval("TABLE_SCHEMA") %></td>
                                         <td class="data"><%# Eval("TABLE_NAME") %></td>
@@ -179,7 +179,7 @@
         <%-- Button --%>
         <div class="medium-12 columns">
             <a href="<%: Page.GetRouteUrl("Generator-Connection", null )  %>" class="button alert hollow">Back</a>
-            <asp:Button runat="server" ID="btnContinueFooter" CssClass="button" Text="Continue" OnClick="btnContinue_Click" />
+            <asp:Button runat="server" ID="btnContinueFooter" CssClass="button" Text="Continue" OnClick="BtnContinue_Click" />
         </div>
     </div>
 </asp:Content>
