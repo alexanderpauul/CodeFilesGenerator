@@ -20,6 +20,7 @@
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
     <UseGlobalApplicationHostFile />
+    <Use64BitIISExpress />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -89,6 +90,8 @@
     <Content Include="Content\Templates\VB\data.txt" />
     <Content Include="Content\Templates\VB\models.txt" />
     <Content Include="Content\Templates\VB\single_file.txt" />
+    <Content Include="css\app.css" />
+    <Content Include="css\foundation.css" />
     <Content Include="css\foundation.min.css" />
     <Content Include="css\Validador.css" />
     <Content Include="Global.asax" />

@@ -19,6 +19,7 @@ namespace alpaul_gls.SGI.generator
         private string _passwword { get { return txtPassword.Text.Trim(); } }
         private string _servername { get { return ddlServer.SelectedValue; } }
         private string _database { get { return ddlDataBase.SelectedValue; } }
+        private string _cnnstring { get { return txtCnnString.Text.Trim(); } }
         private string _conecction_string { get { return lblConecction.Text.Trim(); } }
         private bool _authentication { get { return rdbSerAuthentication.Checked; } }
         private string _Downloable_Name { get { return ddlDataBase.SelectedValue + DateTime.Now.ToString("yyyyMMddHHmmss"); } }
@@ -30,7 +31,7 @@ namespace alpaul_gls.SGI.generator
             ddlServer.Items.Add(new ListItem("-- Not Server Selected --", string.Empty));
             ddlServer.AppendDataBoundItems = true;
 
-            instance = SmoApplication.EnumAvailableSqlServers(true);      
+            instance = SmoApplication.EnumAvailableSqlServers(true);
             ddlServer.DataBind();
 
             if (instance.Rows.Count == 0)
@@ -217,7 +218,7 @@ namespace alpaul_gls.SGI.generator
                 }
                 catch
                 {
-                     Error = "Connection Failed";
+                    Error = "Connection Failed";
                 }
                 finally
                 {
@@ -230,6 +231,12 @@ namespace alpaul_gls.SGI.generator
         {
             SessionPropertyValue();
             Response.Redirect("/Generator/Tables");
+        }
+
+        protected void BtnCnnString_Click(object sender, EventArgs e)
+        {
+            lblConecction.Text = _cnnstring;
+            SessionPropertyValue();
         }
     }
 }

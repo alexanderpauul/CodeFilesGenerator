@@ -55,12 +55,64 @@
             border-radius: 3px;
             text-align: center;
         }
+
+        /* The Modal (background) */
+        .modal {
+            display: none; /* Hidden by default */
+            position: fixed; /* Stay in place */
+            z-index: 1; /* Sit on top */
+            padding-top: 100px; /* Location of the box */
+            left: 0;
+            top: 0;
+            width: 100%; /* Full width */
+            height: 100%; /* Full height */
+            overflow: auto; /* Enable scroll if needed */
+            background-color: rgb(0,0,0); /* Fallback color */
+            background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+        }
+
+        /* Modal Content */
+        .modal-content {
+            background-color: #fefefe;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 44%;
+        }
+
+        /* The Close Button */
+        .close {
+            color: #aaaaaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+            .close:hover,
+            .close:focus {
+                color: #000;
+                text-decoration: none;
+                cursor: pointer;
+            }
     </style>
+
+    <script type="text/javascript">
+        function OpenModal() {
+            var modal = document.getElementById('myModal');
+            modal.style.display = 'block';
+        }
+
+        function CloseModal() {
+            var modal = document.getElementById('myModal');
+            modal.style.display = 'none';
+        }
+    </script>
 </asp:Content>
 <asp:Content ID="body" ContentPlaceHolderID="body" runat="server">
 
     <%--  Form  --%>
     <div class="row">
+
         <div class="medium-12 columns">
             <h3><i class="step fi-align-justify size-29"></i>&nbsp;Data Base Connection</h3>
         </div>
@@ -88,7 +140,8 @@
                                 ID="ddlServer"
                                 TabIndex="0"
                                 AutoPostBack="true"
-                                OnSelectedIndexChanged="DdlServer_SelectedIndexChanged" />
+                                OnSelectedIndexChanged="DdlServer_SelectedIndexChanged"
+                                Style="margin-bottom: 0 !important;" />
                             <asp:RequiredFieldValidator
                                 ID="rfvServer"
                                 runat="server"
@@ -97,6 +150,11 @@
                                 ControlToValidate="ddlServer"
                                 InitialValue=""
                                 SetFocusOnError="true" />
+                            <a href="#"
+                                role="button"
+                                onclick="OpenModal()"
+                                style="display: block !important;">Add connection string manually</a>
+                            <br />
                         </label>
                     </div>
 
@@ -230,10 +288,31 @@
                     </div>
                 </div>
 
+                <%-- The Modal --%>
+                <div id="myModal" class="modal medium">
+                    <div class="modal-content">
+                        <div class="row">
+                            <div class="four columns">
+                                <span onclick="CloseModal()" class="close">&times;</span>
+                                <p>Add connection string...</p>
+
+                                <div class="row collapse">
+                                    <div class="ten mobile-three columns">
+                                        <asp:TextBox ID="txtCnnString" TextMode="MultiLine" runat="server" />
+                                    </div>
+                                    <asp:Button runat="server" ID="btnCnnString" CssClass="button" Text="Connect" OnClick="BtnCnnString_Click"  ValidationGroup="None" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
                 <asp:UpdateProgress ID="updateProgress" runat="server">
                     <ProgressTemplate>
                         <div id="progressBackgroundFilter"></div>
-                        <div id="processMessage">                         
+                        <div id="processMessage">
                             <img alt="Loading" src="/img/loader2.gif" />
                         </div>
                     </ProgressTemplate>

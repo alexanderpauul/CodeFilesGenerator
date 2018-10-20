@@ -33,8 +33,6 @@
             </div>
         </div>
 
-
-
         <div class="body">
             <asp:ContentPlaceHolder ID="body" runat="server">
             </asp:ContentPlaceHolder>
@@ -46,6 +44,14 @@
     <script src="/js/foundation.js"></script>
     <script>
         $(document).foundation();
+
+        $(document).ready(function () {
+            $("#buttonForModal").click(function () {
+                $("#myModal").reveal();
+            });
+        });
     </script>
+
+
 </body>
 </html>
