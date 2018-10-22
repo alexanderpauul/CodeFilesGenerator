@@ -3,6 +3,7 @@ using Microsoft.SqlServer.Management.Smo;
 using System;
 using System.Data;
 using System.Data.SqlClient;
+using System.Text.RegularExpressions;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -235,8 +236,37 @@ namespace alpaul_gls.SGI.generator
 
         protected void BtnCnnString_Click(object sender, EventArgs e)
         {
-            lblConecction.Text = _cnnstring;
-            SessionPropertyValue();
+            try
+            {
+                SqlConnectionStringBuilder cnnStrBuilder = new SqlConnectionStringBuilder(_cnnstring);
+
+                ResetErrorComponents();
+
+                string UserName = (string)cnnStrBuilder["User Id"];
+                string Password = (string)cnnStrBuilder["Password"];
+                string DataSource = (string)cnnStrBuilder["Data Source"];
+
+                txtUserName.Text = UserName;
+                txtPassword.Text = Password;
+
+                ddlServer.Items.Add(new ListItem(DataSource, DataSource));
+                ddlServer.DataBind();
+                ddlServer.SelectedValue = DataSource;
+
+                rdbSerAuthentication.Checked = true;
+
+                GetDataBasesInServer();
+                NoteConnectionString();
+                SessionPropertyValue();
+            }
+            catch (Exception ex)
+            {
+                ResetErrorComponents();
+                CustomValidator msgError = new CustomValidator();
+                msgError.IsValid = false;
+                msgError.ErrorMessage = ex.Message;
+                Page.Validators.Add(msgError);
+            }
         }
     }
 }
