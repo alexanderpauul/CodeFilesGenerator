@@ -307,8 +307,6 @@
                     </div>
                 </div>
 
-
-
                 <asp:UpdateProgress ID="updateProgress" runat="server">
                     <ProgressTemplate>
                         <div id="progressBackgroundFilter"></div>
